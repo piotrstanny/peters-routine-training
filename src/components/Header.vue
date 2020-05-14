@@ -7,11 +7,12 @@
 <style scoped lang="scss">
   #header {
     width: 100%;
-    max-height: 200px;
+    max-height: 240px;
     background-color: black;
 
     img {
       max-height: 200px;
+      margin: 20px 0 20px 0;
     }
   }
 </style>
