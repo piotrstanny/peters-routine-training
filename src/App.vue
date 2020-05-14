@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Header/>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -8,13 +9,31 @@
   </div>
 </template>
 
+<script>
+import Header from '@/components/Header.vue';
+
+export default {
+  components: {
+    Header,
+  },
+};
+</script>
+
 <style lang="scss">
+$bg-color: #1e2124;
+
+body {
+  background-color: $bg-color;
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #f3f3f3;
+
 }
 
 #nav {
