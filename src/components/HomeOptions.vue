@@ -1,9 +1,9 @@
 <template>
   <div class="options">
-    <div class="row row-cols-2 justify-content-center">
+    <div class="row row-cols-2 justify-content-center m-2">
 
       <div class="col-xs-5" v-for="option in options" :key="option">
-        <div class="card bg-dark">
+        <div class="card bg-dark m-2">
           <div class="card-body">
             <h5 class="card-title">{{ option }}</h5>
             <a href="#" class="btn btn-primary">Choose</a>
@@ -26,9 +26,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-// .card-body {
-//   background-color: rgb(43, 43, 43);
-// }
 .options {
   padding-top: 50px;
 }
