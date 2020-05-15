@@ -8,6 +8,8 @@
 
           <div class="card-body">
             <i class="fas fa-stopwatch fa-4x"></i>
+          </div>
+          <div class="card-footer">
             <h5 class="card-title">{{ option }}</h5>
           </div>
           </a>
@@ -22,7 +24,7 @@
 export default {
   data() {
     return {
-      options: ['Profile', 'Timers', 'Metronome Beat', 'Track Run'],
+      options: ['Profile', 'Timers', 'Metronome', 'Track Run'],
     };
   },
 };
@@ -31,5 +33,8 @@ export default {
 <style scoped lang="scss">
 .options {
   padding-top: 50px;
+}
+.bg-dark a {
+  color: rgb(177, 177, 177);
 }
 </style>
