@@ -4,10 +4,13 @@
 
       <div class="col-xs-5" v-for="option in options" :key="option">
         <div class="card bg-dark m-2">
+          <a href="#">
+
           <div class="card-body">
+            <i class="fas fa-stopwatch fa-4x"></i>
             <h5 class="card-title">{{ option }}</h5>
-            <a href="#" class="btn btn-primary">Choose</a>
           </div>
+          </a>
         </div>
       </div>
 
