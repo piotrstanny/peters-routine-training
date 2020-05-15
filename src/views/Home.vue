@@ -1,15 +1,20 @@
 <template>
   <div>
-    <ul>
-      <li>
-        List of tools
-      </li>
-    </ul>
+    <Header/>
+    <HomeOptions/>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue';
+import HomeOptions from '@/components/HomeOptions.vue';
 
+export default {
+  components: {
+    Header,
+    HomeOptions,
+  },
+};
 </script>
 
 <style lang="scss" scoped>
