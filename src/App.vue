@@ -1,18 +1,10 @@
 <template>
   <div id="app">
     <router-view/>
-    <NavBar/>
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue';
-
-export default {
-  components: {
-    NavBar,
-  },
-};
 </script>
 
 <style lang="scss">
@@ -29,19 +21,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #f3f3f3;
-
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #c0c0c0;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>

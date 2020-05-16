@@ -1,6 +1,7 @@
 <template>
-  <div id="nav-bar">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <div>
+    <nav class="navbar fixed-bottom navbar-light bg-light">
+      <a class="navbar-brand" href="#"><router-link to="/">Home</router-link></a>
+    </nav>
+  </div>
 </template>

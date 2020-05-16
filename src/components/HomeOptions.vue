@@ -4,15 +4,15 @@
 
       <div class="col-xs-5" v-for="option in options" :key="option.id">
         <div class="card bg-dark m-2">
-          <a href="#">
+          <router-link :to="option.link">
 
-          <div class="card-body">
-            <i :class="option.icon"></i>
-          </div>
-          <div class="card-footer">
-            <h5 class="card-title">{{ option.title }}</h5>
-          </div>
-          </a>
+            <div class="card-body">
+              <i :class="option.icon"></i>
+            </div>
+            <div class="card-footer">
+              <h5 class="card-title">{{ option.title }}</h5>
+            </div>
+          </router-link>
         </div>
       </div>
 
@@ -29,21 +29,25 @@ export default {
           id: 1,
           title: 'My Stats',
           icon: 'fas fa-user-alt fa-2x',
+          link: '#',
         },
         {
           id: 2,
           title: 'Timers',
           icon: 'fas fa-stopwatch fa-2x',
+          link: '/timers',
         },
         {
           id: 3,
           title: 'Metronome',
           icon: 'fas fa-drum fa-2x',
+          link: '#',
         },
         {
           id: 4,
           title: 'Track Run',
           icon: 'fas fa-running fa-2x',
+          link: '#',
         },
       ],
     };
