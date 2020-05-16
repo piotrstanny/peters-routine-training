@@ -1,5 +1,5 @@
 <template>
-  <div class="options">
+  <div id="home-options">
     <div class="row row-cols-2 justify-content-center m-2">
 
       <div class="col-xs-5" v-for="option in options" :key="option.id">
@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.options {
+#home-options {
   padding-top: 30px;
 }
 .bg-dark a {
