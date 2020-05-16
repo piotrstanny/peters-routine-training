@@ -27,7 +27,7 @@ export default {
       options: [
         {
           id: 1,
-          title: 'Profile',
+          title: 'My Stats',
           icon: 'fas fa-user-alt fa-2x',
         },
         {
@@ -56,6 +56,11 @@ export default {
   padding-top: 30px;
 }
 .bg-dark a {
-  color: rgb(177, 177, 177);
+  color: rgb(130, 229, 247);
+
+
+  &:hover {
+    background-color:#47505a;
+  }
 }
 </style>
