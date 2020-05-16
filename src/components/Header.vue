@@ -9,6 +9,7 @@
     width: 100%;
     max-height: 240px;
     background-color: black;
+    margin-bottom: 20px;
 
     img {
       max-height: 200px;

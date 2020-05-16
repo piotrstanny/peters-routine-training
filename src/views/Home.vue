@@ -1,6 +1,8 @@
 <template>
   <div>
     <Header/>
+    <h3>Welcome Piotr,</h3>
+    <h5>Choose from options below:</h5>
     <HomeOptions/>
   </div>
 </template>
