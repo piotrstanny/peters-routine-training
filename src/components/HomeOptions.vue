@@ -57,7 +57,7 @@ export default {
 
 <style scoped lang="scss">
 #home-options {
-  padding-top: 30px;
+  padding-top: 10px;
 }
 .bg-dark a {
   color: rgb(130, 229, 247);
