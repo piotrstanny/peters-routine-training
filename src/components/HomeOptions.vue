@@ -1,16 +1,16 @@
 <template>
   <div id="home-options">
-    <div class="row row-cols-2 justify-content-center m-2">
+    <div class="row row-cols-2 justify-content-center m-3">
 
-      <div class="col-xs-5" v-for="option in options" :key="option.id">
+      <div v-for="option in options" :key="option.id">
         <div class="card bg-dark m-2">
           <router-link :to="option.link">
 
             <div class="card-body">
-              <i :class="option.icon"></i>
+              <i :class="'fas ' + option.icon + ' fa-lg'"></i>
             </div>
             <div class="card-footer">
-              <h5 class="card-title">{{ option.title }}</h5>
+              <p class="card-title">{{ option.title }}</p>
             </div>
           </router-link>
         </div>
@@ -28,25 +28,25 @@ export default {
         {
           id: 1,
           title: 'My Stats',
-          icon: 'fas fa-user-alt fa-2x',
+          icon: 'fa-user-alt',
           link: '#',
         },
         {
           id: 2,
           title: 'Timers',
-          icon: 'fas fa-stopwatch fa-2x',
+          icon: 'fa-stopwatch',
           link: '/timers',
         },
         {
           id: 3,
           title: 'Metronome',
-          icon: 'fas fa-drum fa-2x',
+          icon: 'fa-drum',
           link: '#',
         },
         {
           id: 4,
           title: 'Track Run',
-          icon: 'fas fa-running fa-2x',
+          icon: 'fa-running',
           link: '#',
         },
       ],
@@ -62,9 +62,16 @@ export default {
 .bg-dark a {
   color: rgb(130, 229, 247);
 
-
   &:hover {
     background-color:#47505a;
+  }
+  &:focus, &:active {
+    background-color:#414952;
+    color: rgb(97, 163, 175);
+    outline: none;
+    -webkit-box-shadow: inset 1px 1px 8px rgb(46, 46, 46);
+    -moz-box-shadow:    inset 1px 1px 8px rgb(46, 46, 46);
+    box-shadow:         inset 1px 1px 8px rgb(46, 46, 46);
   }
 }
 </style>

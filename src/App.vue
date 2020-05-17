@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+  <transition name="slide">
+      <router-view/>
+  </transition>
   </div>
 </template>
 
@@ -9,6 +11,7 @@
 
 <style lang="scss">
 $bg-color: #1e2124;
+$text-color: #f3f3f3;
 
 body {
   background-color: $bg-color;
@@ -20,6 +23,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #f3f3f3;
+  color: $text-color;
 }
+
 </style>

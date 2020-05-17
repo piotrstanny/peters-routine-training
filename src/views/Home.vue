@@ -1,8 +1,8 @@
 <template>
   <div>
     <Header/>
-    <h4>Welcome Piotr,</h4>
-    <h6>Choose from options below:</h6>
+    <h5>Welcome Piotr,</h5>
+    <p>Choose from options below:</p>
     <HomeOptions/>
   </div>
 </template>
@@ -20,8 +20,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  ul {
-    list-style: none;
-    padding: 0;
-  }
 </style>
