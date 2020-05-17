@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-  <transition name="slide">
+  <transition name="slide" appear>
       <router-view/>
   </transition>
   </div>
@@ -26,4 +26,20 @@ body {
   color: $text-color;
 }
 
+.slide-enter {
+  opacity: 0;
+}
+
+.slide-enter-active {
+  animation: slide-in .2s ease-in-out forwards;
+  // transition: opacity ease-out 1s;
+}
+@keyframes slide-in {
+  from {
+    transform: translateX(900px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
 </style>

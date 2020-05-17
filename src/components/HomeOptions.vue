@@ -66,7 +66,7 @@ export default {
     background-color:#47505a;
   }
   &:focus, &:active {
-    background-color:#414952;
+    background-color:#444c55;
     color: rgb(97, 163, 175);
     outline: none;
     -webkit-box-shadow: inset 1px 1px 8px rgb(46, 46, 46);
