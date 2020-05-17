@@ -1,12 +1,23 @@
 <template>
   <div id="app">
-  <transition name="slide" appear>
+    <Header/>
+    <NavBar/>
+    <transition name="slide" mode="out-in">
       <router-view/>
-  </transition>
+    </transition>
   </div>
 </template>
 
 <script>
+import Header from '@/components/Header.vue';
+import NavBar from '@/components/NavBar.vue';
+
+export default {
+  components: {
+    Header,
+    NavBar,
+  },
+};
 </script>
 
 <style lang="scss">
@@ -32,7 +43,7 @@ body {
 
 .slide-enter-active {
   animation: slide-in .2s ease-in-out forwards;
-  // transition: opacity ease-out 1s;
+  transition: opacity ease-out .2s;
 }
 @keyframes slide-in {
   from {
