@@ -1,16 +1,16 @@
 <template>
   <div>
     <h4>List of your timers</h4>
-    <SavedTimers/>
+    <TimersListContent/>
   </div>
 </template>
 
 <script>
-import SavedTimers from '@/components/timers/SavedTimers.vue';
+import TimersListContent from '@/components/timers/TimersListContent.vue';
 
 export default {
   components: {
-    SavedTimers,
+    TimersListContent,
   },
 };
 </script>
