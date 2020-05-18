@@ -1,7 +1,10 @@
 <template>
   <div id="timers-list">
     <div class="row row-cols-1 m-3">
-      <TimerPreviewTemplate v-for="timer in timers" :key="timer.title">
+      <TimerPreviewTemplate
+      v-for="timer in timers"
+      :key="timer.title"
+      >
         <span slot="title">{{ timer.title }}</span>
         <span slot="description">{{ timer.description }}</span>
         <span slot="time">{{ timer.totalTime }}</span>
@@ -17,22 +20,9 @@ export default {
   components: {
     TimerPreviewTemplate,
   },
-  data() {
-    return {
-      timers: [
-        {
-          title: 'Stretching',
-          description: 'Split stretching and handstand hold',
-          totalTime: '25:30',
-        },
-        {
-          title: 'MetCon 1',
-          description: 'Skipping with burpees and more',
-          totalTime: '20:00',
-        },
-      ],
-    };
-  },
+  props: [
+    'timers',
+  ],
 };
 </script>
 
