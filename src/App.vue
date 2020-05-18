@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Header/>
-    <NavBar/>
-    <transition name="slide" mode="out-in">
+    <transition name="fade-in">
       <router-view/>
     </transition>
+    <NavBar/>
   </div>
 </template>
 
@@ -30,6 +30,7 @@ body {
 }
 
 #app {
+  height: 100vh;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,20 +38,11 @@ body {
   color: $text-color;
 }
 
-.slide-enter {
+.fade-in-enter {
   opacity: 0;
 }
 
-.slide-enter-active {
-  animation: slide-in .2s ease-in-out forwards;
-  transition: opacity ease-out .2s;
-}
-@keyframes slide-in {
-  from {
-    transform: translateX(900px);
-  }
-  to {
-    transform: translateX(0);
-  }
+.fade-in-enter-active {
+  transition: opacity ease-out .4s;
 }
 </style>
