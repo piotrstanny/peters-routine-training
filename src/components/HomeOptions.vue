@@ -1,11 +1,9 @@
 <template>
   <div id="home-options">
     <div class="row row-cols-2 justify-content-center m-3">
-
       <div v-for="option in options" :key="option.id">
         <div class="card bg-dark m-2">
           <router-link :to="option.link">
-
             <div class="card-body">
               <i :class="'fas ' + option.icon + ' fa-lg'"></i>
             </div>
@@ -15,7 +13,6 @@
           </router-link>
         </div>
       </div>
-
     </div>
   </div>
 </template>

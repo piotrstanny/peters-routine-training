@@ -1,21 +1,46 @@
 <template>
   <div>
     <nav class="navbar navbar-light bg-light">
-      <router-link to="/" class="nav-item nav-link">
-        <i class="fas fa-home-lg-alt fa-sm"></i>
-        <div class="navbar-fontsize">Home</div>
-      </router-link>
-      <router-link to="/timers" class="nav-item nav-link">
-        <i class="fas fa-stopwatch fa-sm"></i>
-        <div class="navbar-fontsize">Timers</div>
-      </router-link>
-      <router-link to="/my-stats" class="nav-item nav-link">
-        <i class="fas fa-user-alt fa-sm"></i>
-        <div class="navbar-fontsize">My Stats</div>
+      <router-link
+      v-for="item in navbarItems"
+      :key="item.id"
+      :to="item.path"
+      class="nav-item nav-link">
+        <i :class="'fas ' + item.icon + ' fa-sm'"></i>
+        <div class="navbar-smallfont">{{ item.title }}</div>
       </router-link>
     </nav>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      navbarItems: [
+        {
+          id: '1',
+          title: 'Home',
+          icon: 'fa-home-lg-alt',
+          path: '/',
+        },
+        {
+          id: '2',
+          title: 'Timers',
+          icon: 'fa-stopwatch',
+          path: '/timers',
+        },
+        {
+          id: '3',
+          title: 'My Stats',
+          icon: 'fa-user-alt',
+          path: '/my-stats',
+        },
+      ],
+    };
+  },
+};
+</script>
 
 <style scoped lang="scss">
   nav.navbar {
@@ -36,7 +61,7 @@
     }
   }
 
-  .navbar-fontsize {
+  .navbar-smallfont {
     font-size: .9rem;
   }
 
