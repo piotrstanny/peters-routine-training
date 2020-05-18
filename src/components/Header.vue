@@ -7,13 +7,13 @@
 <style scoped lang="scss">
 #header {
     width: 100%;
-    max-height: 120px;
+    max-height: 110px;
     background-color: black;
     margin-bottom: 20px;
 
     img {
-      max-height: 80px;
-      margin: 20px 0 20px 0;
+      max-height: 70px;
+      margin: 15px 0;
     }
   }
 

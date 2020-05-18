@@ -56,9 +56,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#home-options {
-  padding-top: 10px;
+
+.card-title {
+  margin: 0;
+  font-size: .8rem;
 }
+
 .bg-dark a {
   color: rgb(130, 229, 247);
 
@@ -72,6 +75,17 @@ export default {
     -webkit-box-shadow: inset 1px 1px 8px rgb(46, 46, 46);
     -moz-box-shadow:    inset 1px 1px 8px rgb(46, 46, 46);
     box-shadow:         inset 1px 1px 8px rgb(46, 46, 46);
+  }
+}
+
+@media (min-width: 576px) {
+  #home-options {
+    padding-top: 10px;
+  }
+
+  .card-title {
+  margin: 10px;
+  font-size: 1rem;
   }
 }
 </style>
