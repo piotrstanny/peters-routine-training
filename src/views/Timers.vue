@@ -1,13 +1,16 @@
 <template>
   <div>
-    <h2>List of your timers</h2>
-    <ul>
-      <li v-for="(timer, index) in 5" :key="index" style="text-align: left;">
-        <p>Timer {{ index }}</p>
-      </li>
-    </ul>
+    <h4>List of your timers</h4>
+    <SavedTimers/>
   </div>
 </template>
 
 <script>
+import SavedTimers from '@/components/timers/SavedTimers.vue';
+
+export default {
+  components: {
+    SavedTimers,
+  },
+};
 </script>

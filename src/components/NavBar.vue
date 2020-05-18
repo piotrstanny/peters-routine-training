@@ -6,8 +6,8 @@
       :key="item.id"
       :to="item.path"
       class="nav-item nav-link">
-        <i :class="'fas ' + item.icon + ' fa-sm'"></i>
-        <div class="navbar-smallfont">{{ item.title }}</div>
+        <i :class="'fas ' + item.icon + ' fa-lg'"></i>
+        <div>{{ item.title }}</div>
       </router-link>
     </nav>
   </div>
@@ -59,10 +59,6 @@ export default {
         color: black;
       }
     }
-  }
-
-  .navbar-smallfont {
-    font-size: .9rem;
   }
 
   a.nav-item.nav-link {

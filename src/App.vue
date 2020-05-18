@@ -37,6 +37,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: $text-color;
+  font-size: .8rem;
+}
+@media (min-width: 576px) {
+  #app {
+    font-size: 1rem;
+  }
 }
 
 .fade-in-enter {

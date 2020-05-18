@@ -50,7 +50,6 @@ export default {
 
 .card-title {
   margin: 0;
-  font-size: .8rem;
 }
 
 .bg-dark a {
@@ -76,7 +75,6 @@ export default {
 
   .card-title {
   margin: 10px;
-  font-size: 1rem;
   }
 }
 </style>
