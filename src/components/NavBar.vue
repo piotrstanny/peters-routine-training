@@ -1,9 +1,6 @@
 <template>
   <div>
     <nav class="navbar navbar-light bg-light">
-      <a class="nav-item nav-link" href="#">
-        <i class="fas fa-user fa-sm"></i>
-        <div class="navbar-fontsize">User</div></a>
       <router-link to="/" class="nav-item nav-link">
         <i class="fas fa-home-lg-alt fa-sm"></i>
         <div class="navbar-fontsize">Home</div>
@@ -11,6 +8,10 @@
       <router-link to="/timers" class="nav-item nav-link">
         <i class="fas fa-stopwatch fa-sm"></i>
         <div class="navbar-fontsize">Timers</div>
+      </router-link>
+      <router-link to="/my-stats" class="nav-item nav-link">
+        <i class="fas fa-user-alt fa-sm"></i>
+        <div class="navbar-fontsize">My Stats</div>
       </router-link>
     </nav>
   </div>

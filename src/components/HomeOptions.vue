@@ -27,26 +27,20 @@ export default {
       options: [
         {
           id: 1,
-          title: 'My Stats',
-          icon: 'fa-user-alt',
+          title: 'Track Run',
+          icon: 'fa-running',
           link: '#',
         },
         {
           id: 2,
-          title: 'Timers',
-          icon: 'fa-stopwatch',
-          link: '/timers',
-        },
-        {
-          id: 3,
           title: 'Metronome',
           icon: 'fa-drum',
           link: '#',
         },
         {
-          id: 4,
-          title: 'Track Run',
-          icon: 'fa-running',
+          id: 3,
+          title: 'Settings',
+          icon: 'fa-cog',
           link: '#',
         },
       ],

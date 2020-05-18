@@ -31,6 +31,7 @@ body {
 
 #app {
   height: 100vh;
+  margin-bottom: 100px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
