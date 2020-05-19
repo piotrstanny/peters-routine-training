@@ -1,24 +1,24 @@
 <template>
   <div id="timers-list">
     <div class="row row-cols-1 m-3">
-      <TimerPreviewTemplate
+      <TimersPreviewTemplate
       v-for="timer in timers"
       :key="timer.title"
       >
         <span slot="title">{{ timer.title }}</span>
         <span slot="description">{{ timer.description }}</span>
         <span slot="time">{{ timer.totalTime }}</span>
-      </TimerPreviewTemplate>
+      </TimersPreviewTemplate>
     </div>
   </div>
 </template>
 
 <script>
-import TimerPreviewTemplate from '@/components/timers/TimerPreviewTemplate.vue';
+import TimersPreviewTemplate from '@/components/timers/TimersPreviewTemplate.vue';
 
 export default {
   components: {
-    TimerPreviewTemplate,
+    TimersPreviewTemplate,
   },
   props: [
     'timers',

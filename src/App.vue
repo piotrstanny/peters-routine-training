@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <Header/>
-    <transition name="fade-in">
-      <router-view/>
-    </transition>
+    <div id="container">
+      <transition name="fade-in">
+        <router-view/>
+      </transition>
+    </div>
     <NavBar/>
   </div>
 </template>
@@ -31,7 +33,6 @@ body {
 
 #app {
   height: 100vh;
-  margin-bottom: 100px;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -43,6 +44,10 @@ body {
   #app {
     font-size: 1rem;
   }
+}
+
+#container {
+  margin-bottom: 64px;
 }
 
 .fade-in-enter {

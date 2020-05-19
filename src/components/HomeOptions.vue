@@ -40,6 +40,30 @@ export default {
           icon: 'fa-cog',
           link: '#',
         },
+        {
+          id: 4,
+          title: 'Metronome',
+          icon: 'fa-drum',
+          link: '#',
+        },
+        {
+          id: 5,
+          title: 'Settings',
+          icon: 'fa-cog',
+          link: '#',
+        },
+        {
+          id: 6,
+          title: 'Metronome',
+          icon: 'fa-drum',
+          link: '#',
+        },
+        {
+          id: 7,
+          title: 'Settings',
+          icon: 'fa-cog',
+          link: '#',
+        },
       ],
     };
   },

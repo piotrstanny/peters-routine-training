@@ -26,6 +26,11 @@ export default {
           description: 'Skipping with burpees and more',
           totalTime: '20:00',
         },
+        {
+          title: 'MetCon 2',
+          description: 'Plyo - pushups, squat jumps and more',
+          totalTime: '30:00',
+        },
       ],
     };
   },
