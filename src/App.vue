@@ -1,32 +1,60 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <Header/>
+    <div id="container">
+      <transition name="fade-in">
+        <router-view/>
+      </transition>
     </div>
-    <router-view/>
+    <NavBar/>
   </div>
 </template>
 
+<script>
+import Header from '@/components/Header.vue';
+import NavBar from '@/components/NavBar.vue';
+
+export default {
+  components: {
+    Header,
+    NavBar,
+  },
+};
+</script>
+
 <style lang="scss">
+$bg-color: #1e2124;
+$text-color: #f3f3f3;
+
+body {
+  background-color: $bg-color;
+  margin: 0;
+}
+
 #app {
+  height: 100vh;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: $text-color;
+  font-size: .8rem;
+}
+@media (min-width: 576px) {
+  #app {
+    font-size: 1rem;
+  }
 }
 
-#nav {
-  padding: 30px;
+#container {
+  margin-bottom: 64px;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+.fade-in-enter {
+  opacity: 0;
+}
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.fade-in-enter-active {
+  transition: opacity ease-out .4s;
 }
 </style>
