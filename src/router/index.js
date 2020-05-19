@@ -19,6 +19,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "timers" */ '../views/Timers.vue'),
   },
   {
+    path: '/single-timer',
+    name: 'Single Timer',
+    component: () => import(/* webpackChunkName: "timers" */ '../views/SingleTimer.vue'),
+  },
+  {
     path: '/my-stats',
     name: 'My Stats',
     component: () => import(/* webpackChunkName: "my-stats" */ '../views/MyStats.vue'),

@@ -1,17 +1,17 @@
 <template>
   <div>
     <h4>List of your timers</h4>
-    <TimersListContent :timers="timers">
-    </TimersListContent>
+    <TimersList :timers="timers">
+    </TimersList>
   </div>
 </template>
 
 <script>
-import TimersListContent from '@/components/timers/TimersListContent.vue';
+import TimersList from '@/components/timers/TimersList.vue';
 
 export default {
   components: {
-    TimersListContent,
+    TimersList,
   },
   data() {
     return {
@@ -20,6 +20,7 @@ export default {
           title: 'Stretching',
           description: 'Split stretching and handstand hold',
           totalTime: '25:30',
+          path: 'single-timer',
         },
         {
           title: 'MetCon 1',

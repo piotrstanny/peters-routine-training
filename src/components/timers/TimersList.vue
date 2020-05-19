@@ -3,8 +3,7 @@
     <div class="row row-cols-1 m-3">
       <TimersPreviewTemplate
       v-for="timer in timers"
-      :key="timer.title"
-      >
+      :key="timer.title">
         <span slot="title">{{ timer.title }}</span>
         <span slot="description">{{ timer.description }}</span>
         <span slot="time">{{ timer.totalTime }}</span>
