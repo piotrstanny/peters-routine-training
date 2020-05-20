@@ -1,50 +1,57 @@
 <template>
   <div>
     <h3>Single timer {{ $route.params.id }}</h3><br>
-    <p>Form of intervals to be created</p>
+    <p>Start with current values or change times</p>
     <form>
       <div class="form-group row m-4">
         <label
         for="colFormLabelSm"
         class="col-sm-2 col-form-label col-form-label-sm">
-          Set Time:
+          Workout Name:
         </label>
         <div class="col-sm-10">
           <input
-          type="email"
+          type="text"
           class="form-control form-control-sm"
           id="colFormLabelSm"
-          placeholder="col-form-label-sm">
+          placeholder="Name your workout">
         </div>
       </div>
       <div class="form-group row m-4">
         <label
         for="colFormLabelSm"
         class="col-sm-2 col-form-label col-form-label-sm">
-          Set Time:
+          Exercise 1:
         </label>
         <div class="col-sm-10">
           <input
-          type="email"
+          type="text"
           class="form-control form-control-sm"
           id="colFormLabelSm"
-          placeholder="col-form-label-sm">
+          placeholder="Name of your first exercise">
         </div>
       </div>
       <div class="form-group row m-4">
         <label
         for="colFormLabelSm"
         class="col-sm-2 col-form-label col-form-label-sm">
-          Set Time:
+          Work Time:
         </label>
         <div class="col-sm-10">
           <input
-          type="email"
+          type="number"
           class="form-control form-control-sm"
           id="colFormLabelSm"
-          placeholder="col-form-label-sm">
+          placeholder="Work time in seconds">
         </div>
       </div>
     </form>
+    <button type="button" class="btn btn-secondary">Add Next Exercise</button>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  form {
+    text-align: left;
+  }
+</style>
