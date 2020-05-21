@@ -48,6 +48,20 @@ export default {
 
 <style scoped lang="scss">
 
+@media (min-width: 576px) {
+  #home-options {
+    padding-top: 10px;
+  }
+
+  .card-title {
+  margin: 10px;
+  }
+}
+
+#home-options {
+  background-image: url("../assets/bg.jpeg");
+}
+
 .card-title {
   margin: 0;
 }
@@ -65,16 +79,6 @@ export default {
     -webkit-box-shadow: inset 1px 1px 8px rgb(46, 46, 46);
     -moz-box-shadow:    inset 1px 1px 8px rgb(46, 46, 46);
     box-shadow:         inset 1px 1px 8px rgb(46, 46, 46);
-  }
-}
-
-@media (min-width: 576px) {
-  #home-options {
-    padding-top: 10px;
-  }
-
-  .card-title {
-  margin: 10px;
   }
 }
 </style>

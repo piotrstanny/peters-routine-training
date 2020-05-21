@@ -97,9 +97,18 @@
         </div>
       </div>
 
+        <div id="timer-section">
+          <p>Time remaining: <span id="timer-running">{{ timer.countdown }}</span>
+          </p>
+        </div>
+
       <div class="row justify-content-center">
         <div class="col-8 p-4">
-          <button type="button" class="btn btn-block btn-info ">Start Workout</button>
+          <button
+          type="button"
+          class="btn btn-block btn-info"
+          @click="startTimer()">
+          Start Workout</button>
         </div>
       </div>
     </form>
@@ -121,6 +130,18 @@ export default {
       },
     };
   },
+  methods: {
+    startTimer() {
+      let secondsLeft = this.timer.countdown;
+      const interval = setInterval(() => {
+        if (secondsLeft <= 0) {
+          clearInterval(interval);
+        }
+        document.getElementById('timer-running').innerHTML = secondsLeft;
+        secondsLeft -= 1;
+      }, 1000);
+    },
+  },
 };
 </script>
 
@@ -132,5 +153,12 @@ export default {
 
   .timer-details {
     text-align: center;
+  }
+
+  #timer-section {
+    text-align: center;
+    background-color: black;
+    height: 50px;
+    line-height: 50px;
   }
 </style>
