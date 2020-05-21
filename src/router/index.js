@@ -24,7 +24,7 @@ const routes = [
         component: () => import(/* webpackChunkName: "timers" */ '../views/timers/TimersList.vue'),
       },
       {
-        path: ':id',
+        path: ':details',
         name: 'SingleTimer',
         component: () => import(/* webpackChunkName: "timers" */ '../views/timers/SingleTimer.vue'),
       },

@@ -1,36 +1,93 @@
 <template>
   <div>
-    <h3>Single timer {{ $route.params.id }}</h3><br>
+    <h3>{{ $route.params.details }}</h3><br>
     <p>Start with current values or change times</p>
     <form>
-      <div class="form-group row m-4">
-        <label
-        for="colFormLabelSm"
-        class="col-sm-2 col-form-label col-form-label-sm">
-          Workout Name:
-        </label>
-        <div class="col-sm-10">
-          <input
-          type="text"
-          class="form-control form-control-sm"
-          id="colFormLabelSm"
-          placeholder="Name your workout">
+
+      <div class="card bg-secondary m-2">
+        <div class="card-header">
+          Timer Details
+        </div>
+        <div class="card-body">
+
+          <div class="form-group m-2 row">
+            <label
+            for="colFormLabelSm"
+            class="col-sm-4 col-form-label col-form-label-sm">
+              Name your workout:
+            </label>
+            <div class="col-sm-6">
+              <input
+              type="text"
+              class="form-control form-control-sm"
+              id="colFormLabelSm"
+              :placeholder="$route.params.details">
+            </div>
+          </div>
+
+          <div class="form-group row m-2">
+            <label
+            for="colFormLabelSm"
+            class="col-sm-2 col-form-label col-form-label-sm">
+              Prepare/Countdown time (in seconds):
+            </label>
+            <div class="col-sm-10">
+              <input
+              type="number"
+              class="form-control form-control-sm"
+              id="colFormLabelSm"
+              placeholder="10">
+            </div>
+          </div>
+
+          <div class="form-group row m-2">
+            <label
+            for="colFormLabelSm"
+            class="col-sm-2 col-form-label col-form-label-sm">
+              Number of rounds:
+            </label>
+            <div class="col-sm-10">
+              <input
+              type="number"
+              class="form-control form-control-sm"
+              id="colFormLabelSm"
+              placeholder="4">
+            </div>
+          </div>
+
+          <div class="form-group row m-2">
+            <label
+            for="colFormLabelSm"
+            class="col-sm-2 col-form-label col-form-label-sm">
+              Rest between exercises (in seconds):
+            </label>
+            <div class="col-sm-10">
+              <input
+              type="number"
+              class="form-control form-control-sm"
+              id="colFormLabelSm"
+              placeholder="20">
+            </div>
+          </div>
+
+          <div class="form-group row m-2">
+            <label
+            for="colFormLabelSm"
+            class="col-sm-2 col-form-label col-form-label-sm">
+              Rest between rounds (in seconds):
+            </label>
+            <div class="col-sm-10">
+              <input
+              type="number"
+              class="form-control form-control-sm"
+              id="colFormLabelSm"
+              placeholder="90">
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="form-group row m-4">
-        <label
-        for="colFormLabelSm"
-        class="col-sm-2 col-form-label col-form-label-sm">
-          Exercise 1:
-        </label>
-        <div class="col-sm-10">
-          <input
-          type="text"
-          class="form-control form-control-sm"
-          id="colFormLabelSm"
-          placeholder="Name of your first exercise">
-        </div>
-      </div>
+
       <div class="form-group row m-4">
         <label
         for="colFormLabelSm"

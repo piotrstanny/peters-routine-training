@@ -5,7 +5,7 @@
       <router-link
       v-for="timer in timers"
       :key="timer.id"
-      :to="'timers/' + timer.id"
+      :to="'timers/' + timer.title"
       >
         <TimersPreviewTemplate>
           <span slot="title">{{ timer.title }}</span>
