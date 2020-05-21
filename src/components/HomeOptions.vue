@@ -1,6 +1,10 @@
 <template>
   <div id="home-options">
-    <div class="row row-cols-2 justify-content-center m-3">
+    <div id="img-container">
+
+    <img class="bg-image" src="../assets/bg.jpg" alt="Woman working out">
+    </div>
+    <!-- <div class="row row-cols-2 justify-content-center m-3">
       <div v-for="option in options" :key="option.id">
         <div class="card bg-dark m-2">
           <router-link :to="option.link">
@@ -13,7 +17,7 @@
           </router-link>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -58,8 +62,22 @@ export default {
   }
 }
 
-#home-options {
-  background-image: url("../assets/bg.jpeg");
+#img-container {
+
+}
+
+.bg-image {
+  position: fixed;
+  margin: 0 auto;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 320px;
+  height: 100%;
+  width: auto;
+  opacity: 0.4;
+  z-index: -1;
+  object-fit: cover
 }
 
 .card-title {
