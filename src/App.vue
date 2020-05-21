@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <Header/>
     <div id="container">
       <transition name="fade-in">
         <router-view/>
@@ -11,12 +10,10 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
 import NavBar from '@/components/NavBar.vue';
 
 export default {
   components: {
-    Header,
     NavBar,
   },
 };

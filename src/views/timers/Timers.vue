@@ -1,12 +1,15 @@
 <template>
-  <div>
+  <div class="pt-4">
     <router-view :timers="timers">
     </router-view>
   </div>
 </template>
 
 <script>
+
 export default {
+  components: {
+  },
   data() {
     return {
       timers: [

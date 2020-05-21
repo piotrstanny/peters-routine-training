@@ -79,10 +79,10 @@
         </div>
       </div>
 
-      <h4 class="mt-3">Exercises:</h4>
+      <h4 class="mt-3 ml-3">Exercises:</h4>
 
       <div
-      class="card bg-dark m-1"
+      class="card bg-dark m-1 mb-3"
       v-for="(exercise, index) in timers[0].exercises"
       :key="exercise.id">
         <div class="card-header font-weight-bold">
@@ -121,7 +121,13 @@
           </div>
         </div>
       </div>
-          <button type="button" class="btn btn-block btn-info mt-4 mb-4">Start Workout</button>
+      <div class="row justify-content-center">
+        <div class="col-8 p-4">
+
+          <button type="button" class="btn btn-block btn-info ">Start Workout</button>
+        </div>
+
+      </div>
 
     </form>
     </div>
