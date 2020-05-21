@@ -115,18 +115,13 @@
             id="colFormLabelSm"
             :placeholder="exercise.duration">
           </div>
-
-          <div class="form-group mt-5">
-
-          </div>
         </div>
       </div>
+
       <div class="row justify-content-center">
         <div class="col-8 p-4">
-
           <button type="button" class="btn btn-block btn-info ">Start Workout</button>
         </div>
-
       </div>
 
     </form>

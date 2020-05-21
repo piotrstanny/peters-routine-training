@@ -1,9 +1,10 @@
 <template>
 <div>
-  <div class="row justify-content-center">
+  <div>
   <h3 class="pt-4">Instant Timer</h3>
   </div>
-  <div class="row justify-content-center">
+
+  <div class="timer-details">
     <form class="col-sm-8">
 
       <div class="card bg-dark m-1">
@@ -35,7 +36,8 @@
             type="number"
             class="form-control form-control-sm"
             id="colFormLabelSm"
-            placeholder="e.g. 6 exercises per round">
+            placeholder="e.g. 6 exercises per round"
+            autofocus>
           </div>
 
           <div class="form-group">
@@ -92,6 +94,12 @@
 
         </div>
       </div>
+
+      <div class="row justify-content-center">
+        <div class="col-8 p-4">
+          <button type="button" class="btn btn-block btn-info ">Start Workout</button>
+        </div>
+      </div>
     </form>
   </div>
 </div>
@@ -100,5 +108,10 @@
 <style lang="scss" scoped>
   form {
     text-align: left;
+    display: inline-block;
+  }
+
+  .timer-details {
+    text-align: center;
   }
 </style>
