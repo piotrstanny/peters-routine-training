@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3>{{ $route.params.details }}</h3>
+    <h3 class="pt-4">{{ $route.params.details }}</h3>
     <p>{{ timers[0].description }}</p>
 
     <div class="row justify-content-center">

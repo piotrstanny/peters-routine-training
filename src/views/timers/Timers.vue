@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-4">
+  <div>
     <router-view :timers="timers">
     </router-view>
   </div>
