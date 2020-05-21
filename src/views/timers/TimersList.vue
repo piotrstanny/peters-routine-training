@@ -2,10 +2,16 @@
   <div id="timers-list">
     <h4 style="text-align: center">List of your timers</h4>
     <div class="row row-cols-1 m-3">
+      <router-link to="timers/Quick_Timer">
+        <TimersPreviewTemplate>
+        </TimersPreviewTemplate>
+      </router-link>
+
       <router-link
       v-for="timer in timers"
       :key="timer.id"
       :to="'timers/' + timer.title"
+      :timers="timers"
       >
         <TimersPreviewTemplate>
           <span slot="title">{{ timer.title }}</span>
@@ -36,12 +42,10 @@ export default {
     padding-top: 10px;
   }
 }
-
 #timers-list {
   text-align: left;
   a {
   text-decoration: none;
-
   }
 }
 </style>

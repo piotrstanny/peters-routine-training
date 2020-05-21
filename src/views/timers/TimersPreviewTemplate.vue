@@ -3,15 +3,17 @@
     <div class="card-body p-3">
       <div class="justify-content-between d-flex">
         <h5 class="card-title">
-          <slot name="title"></slot>
+          <slot name="title">Quick Setup Timer</slot>
         </h5>
         <small>
           Total time:
-          <slot name="time"></slot>
+          <slot name="time">Unknown</slot>
         </small>
       </div>
       <p class="card-text">
-        <slot name="description"></slot>
+        <slot name="description">
+          Simply set durations and run intervals, without naming your exercises.
+        </slot>
       </p>
     </div>
   </div>
