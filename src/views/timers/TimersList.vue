@@ -2,7 +2,7 @@
   <div id="timers-list">
     <h4 style="text-align: center">List of your timers</h4>
     <div class="row row-cols-1 m-3">
-      <router-link to="timers/Quick_Timer">
+      <router-link :to="{name: 'InstantTimer'}">
         <TimersPreviewTemplate>
         </TimersPreviewTemplate>
       </router-link>
