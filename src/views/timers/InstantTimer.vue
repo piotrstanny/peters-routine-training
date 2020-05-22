@@ -127,6 +127,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -142,10 +143,37 @@ export default {
   },
   methods: {
     startTimer() {
+      let audioContext;
+      try {
+        audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      } catch (error) {
+        window.alert('Sorry, but your browser doesn\'t support the Web Audio API!');
+      }
+      if (audioContext !== undefined) {
+        const oscillator = audioContext.createOscillator();
+        oscillator.connect(audioContext.destination);
+        oscillator.start();
+        setTimeout(() => {
+          oscillator.stop();
+        }, 100);
+      }
       let secondsLeft = this.timer.countdown - 1;
       const interval = setInterval(() => {
         if (secondsLeft <= 0) {
           clearInterval(interval);
+          try {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+          } catch (error) {
+            window.alert('Sorry, but your browser doesn\'t support the Web Audio API!');
+          }
+          if (audioContext !== undefined) {
+            const oscillator = audioContext.createOscillator();
+            oscillator.connect(audioContext.destination);
+            oscillator.start();
+            setTimeout(() => {
+              oscillator.stop();
+            }, 800);
+          }
         }
         document.getElementById('timer-running').innerHTML = secondsLeft;
         secondsLeft -= 1;
