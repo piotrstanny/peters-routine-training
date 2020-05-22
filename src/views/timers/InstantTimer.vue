@@ -127,7 +127,6 @@
 </template>
 
 <script>
-
 export default {
   data() {
     return {
@@ -141,6 +140,7 @@ export default {
       },
     };
   },
+  
   methods: {
     startTimer() {
       let audioContext;
