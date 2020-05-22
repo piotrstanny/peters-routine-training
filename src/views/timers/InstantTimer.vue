@@ -132,7 +132,7 @@ export default {
   },
   methods: {
     startTimer() {
-      let secondsLeft = this.timer.countdown;
+      let secondsLeft = this.timer.countdown - 1;
       const interval = setInterval(() => {
         if (secondsLeft <= 0) {
           clearInterval(interval);
@@ -160,5 +160,6 @@ export default {
     background-color: black;
     height: 50px;
     line-height: 50px;
+    font-size: 1.5em;
   }
 </style>

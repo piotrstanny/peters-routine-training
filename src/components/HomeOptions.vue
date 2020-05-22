@@ -1,9 +1,8 @@
 <template>
   <div id="home-options">
-    <div id="img-container">
 
     <img class="bg-image" src="../assets/bg.jpg" alt="Woman working out">
-    </div>
+
     <!-- <div class="row row-cols-2 justify-content-center m-3">
       <div v-for="option in options" :key="option.id">
         <div class="card bg-dark m-2">
@@ -57,27 +56,29 @@ export default {
     padding-top: 10px;
   }
 
-  .card-title {
-  margin: 10px;
-  }
+  // .card-title {
+  // margin: 10px;
+  // }
 }
 
 #img-container {
-
+  width: 100%;
 }
-
 .bg-image {
   position: fixed;
-  margin: 0 auto;
-  padding: 0;
-  bottom: 0;
   left: 0;
-  min-width: 320px;
+  // top: 100px;
+  bottom: 0;
+  width: 100%;
   height: 100%;
-  width: auto;
-  opacity: 0.4;
   z-index: -1;
-  object-fit: cover
+  opacity: .5;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  .bg-image {
+    bottom: -50px;
+  }
 }
 
 .card-title {
