@@ -110,6 +110,14 @@
           @click="startTimer()">
           Start Workout</button>
         </div>
+
+        <div class="col-3 pl-0 pt-4 pr-4">
+          <button
+          type="button"
+          class="btn btn-block btn-danger"
+          @click="resetTimer()">
+          Reset</button>
+        </div>
       </div>
     </form>
   </div>
@@ -140,6 +148,10 @@ export default {
         document.getElementById('timer-running').innerHTML = secondsLeft;
         secondsLeft -= 1;
       }, 1000);
+    },
+    resetTimer() {
+      // document.getElementById('timer-running').innerHTML = this.timer.countdown;
+      window.location.reload();
     },
   },
 };
