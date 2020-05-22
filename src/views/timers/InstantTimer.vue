@@ -23,7 +23,8 @@
             v-model="timer.countdown"
             type="number"
             class="form-control form-control-sm"
-            id="colFormLabelSm">
+            id="colFormLabelSm"
+            @keyup="resetTimer">
           </div>
 
           <div class="form-group">
@@ -150,8 +151,7 @@ export default {
       }, 1000);
     },
     resetTimer() {
-      // document.getElementById('timer-running').innerHTML = this.timer.countdown;
-      window.location.reload();
+      document.getElementById('timer-running').innerHTML = this.timer.countdown;
     },
   },
 };
