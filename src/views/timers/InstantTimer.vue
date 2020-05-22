@@ -4,7 +4,7 @@
   <h3 class="pt-4">Instant Timer</h3>
   </div>
 
-  <div class="timer-details">
+  <div class="timer-container">
     <form class="col-sm-8">
 
       <div class="row justify-content-center">
@@ -30,7 +30,7 @@
           </p>
         </div>
 
-      <div class="card bg-dark m-1">
+      <div class="card bg-dark m-1 mt-2">
         <div class="card-header font-weight-bold">
           Timer Details
         </div>
@@ -164,7 +164,7 @@ export default {
     display: inline-block;
   }
 
-  .timer-details {
+  .timer-container {
     text-align: center;
   }
 
