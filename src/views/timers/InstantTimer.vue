@@ -7,6 +7,29 @@
   <div class="timer-details">
     <form class="col-sm-8">
 
+      <div class="row justify-content-center">
+        <div class="col-8 p-4">
+          <button
+          type="button"
+          class="btn btn-block btn-info"
+          @click="startTimer()">
+          Start Workout</button>
+        </div>
+
+        <div class="col-3 pl-0 pt-4 pr-4">
+          <button
+          type="button"
+          class="btn btn-block btn-danger"
+          @click="resetTimer()">
+          Reset</button>
+        </div>
+      </div>
+
+      <div id="timer-section">
+          <p>Time remaining: <span id="timer-running">{{ timer.countdown }}</span>
+          </p>
+        </div>
+
       <div class="card bg-dark m-1">
         <div class="card-header font-weight-bold">
           Timer Details
@@ -98,28 +121,6 @@
         </div>
       </div>
 
-        <div id="timer-section">
-          <p>Time remaining: <span id="timer-running">{{ timer.countdown }}</span>
-          </p>
-        </div>
-
-      <div class="row justify-content-center">
-        <div class="col-8 p-4">
-          <button
-          type="button"
-          class="btn btn-block btn-info"
-          @click="startTimer()">
-          Start Workout</button>
-        </div>
-
-        <div class="col-3 pl-0 pt-4 pr-4">
-          <button
-          type="button"
-          class="btn btn-block btn-danger"
-          @click="resetTimer()">
-          Reset</button>
-        </div>
-      </div>
     </form>
   </div>
 </div>
