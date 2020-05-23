@@ -28,7 +28,7 @@
       <div id="timer-section">
           <p>Time remaining: <span id="timer-running">{{ timer.countdown }}</span>
           </p>
-          <p>Total time: {{ totalTime() }}</p>
+          <p>Total time: {{ totalMinutes() }} min {{ totalSeconds() }} sec</p>
         </div>
 
       <div class="card bg-dark m-1 mt-2">
@@ -55,16 +55,13 @@
             <label
             for="colFormLabelSm"
             class="col-form-label col-form-label-sm">
-              Number of exercises:
+              Number of exercises per round:
             </label>
             <input
             v-model="timer.noOfExercises"
             type="number"
             class="form-control form-control-sm"
-            id="colFormLabelSm"
-            placeholder="e.g. 6 exercises per round"
-            autofocus>
-            <p>{{ timer.noOfExercises }}</p>
+            id="colFormLabelSm">
           </div>
 
           <div class="form-group">
@@ -132,8 +129,8 @@ export default {
   data() {
     return {
       timer: {
-        countdown: 10,
-        noOfExercises: '',
+        countdown: 5,
+        noOfExercises: 5,
         exerciseDuration: 45,
         restBetweenEx: 20,
         noOfRounds: 4,
@@ -143,8 +140,23 @@ export default {
   },
 
   methods: {
-    totalTime() {
-      return '28 min 30 sec';
+    totalInSeconds() {
+      const tRef = this.timer;
+      const totalSec = tRef.countdown
+      + tRef.exerciseDuration * tRef.noOfExercises * tRef.noOfRounds
+      + tRef.restBetweenEx * (tRef.noOfExercises - 1) * tRef.noOfRounds
+      + tRef.restBetweenRounds * (tRef.noOfRounds - 1);
+      return totalSec;
+    },
+
+    totalMinutes() {
+      const minutes = Math.floor(this.totalInSeconds() / 60);
+      return minutes;
+    },
+
+    totalSeconds() {
+      const seconds = this.totalInSeconds() - (this.totalMinutes() * 60);
+      return seconds;
     },
 
     startTimer() {
