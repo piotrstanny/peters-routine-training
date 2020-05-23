@@ -28,6 +28,7 @@
       <div id="timer-section">
           <p>Time remaining: <span id="timer-running">{{ timer.countdown }}</span>
           </p>
+          <p>Total time: {{ totalTime() }}</p>
         </div>
 
       <div class="card bg-dark m-1 mt-2">
@@ -140,8 +141,12 @@ export default {
       },
     };
   },
-  
+
   methods: {
+    totalTime() {
+      return '28 min 30 sec';
+    },
+
     startTimer() {
       let audioContext;
       try {
@@ -155,7 +160,7 @@ export default {
         oscillator.start();
         setTimeout(() => {
           oscillator.stop();
-        }, 100);
+        }, 200);
       }
       let secondsLeft = this.timer.countdown - 1;
       const interval = setInterval(() => {
@@ -199,7 +204,7 @@ export default {
   #timer-section {
     text-align: center;
     background-color: black;
-    height: 50px;
+    // height: 50px;
     line-height: 50px;
     font-size: 1.5em;
   }
