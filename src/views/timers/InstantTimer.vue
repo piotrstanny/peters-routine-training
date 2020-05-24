@@ -29,6 +29,12 @@
           <!-- <p>Time remaining: <span id="timer-running">{{ timer.countdown }}</span>
           </p> -->
           <p>Total time: {{ totalMinutes() }} min {{ totalSeconds() }} sec</p>
+          <p>Intervals: <span v-for="(i, index) in intervals" :key="index">{{ i }}, </span>
+            <button
+            @click="createIntervalsArray()"
+            type="button"
+            class="btn btn-sm btn-info">Add</button>
+          </p>
         </div>
 
       <div class="card bg-dark m-1 mt-2">
@@ -135,6 +141,7 @@ export default {
         noOfRounds: 4,
         restBetweenRounds: 90,
       },
+      intervals: [],
     };
   },
 
@@ -149,7 +156,6 @@ export default {
       + tRef.exerciseDuration * tRef.noOfExercises * tRef.noOfRounds
       + tRef.restBetweenEx * (tRef.noOfExercises - 1) * tRef.noOfRounds
       + tRef.restBetweenRounds * (tRef.noOfRounds - 1);
-      console.log(typeof (totalSec));
       return totalSec;
     },
 
@@ -160,8 +166,31 @@ export default {
 
     totalSeconds() {
       const seconds = this.totalInSeconds() - (this.totalMinutes() * 60);
-      console.log(this.totalInSeconds());
       return seconds;
+    },
+
+    createIntervalsArray() {
+      const tRef = this.timer;
+      if (tRef.countdown > 0) {
+        this.intervals.push(tRef.countdown);
+      }
+      let rdCounter = tRef.noOfRounds;
+      while (rdCounter > 0) {
+        let exCounter = tRef.noOfExercises;
+        let restCounter = exCounter - 1;
+        while (exCounter > 0) {
+          this.intervals.push(tRef.exerciseDuration);
+          if (restCounter > 0) {
+            this.intervals.push(tRef.restBetweenEx);
+            restCounter -= 1;
+          }
+          exCounter -= 1;
+        }
+        if (rdCounter > 1) {
+          this.intervals.push(tRef.restBetweenRounds);
+        }
+        rdCounter -= 1;
+      }
     },
 
     startTimer() {
