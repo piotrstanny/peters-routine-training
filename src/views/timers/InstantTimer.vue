@@ -12,7 +12,7 @@
           <button
           type="button"
           class="btn btn-block btn-info"
-          @click="startTimer()">
+          @click="startTimer(intervals[0])">
           Start Workout</button>
         </div>
 
@@ -29,6 +29,8 @@
           <!-- <p>Time remaining: <span id="timer-running">{{ timer.countdown }}</span>
           </p> -->
           <p>Total time: {{ totalMinutes() }} min {{ totalSeconds() }} sec</p>
+          <p>Number of intervals: {{ intervals.length }}</p>
+          <h1 id="timer-running">00:00</h1>
           <p>Intervals: <span v-for="(i, index) in intervals" :key="index">{{ i }}, </span>
             <button
             @click="createIntervalsArray()"
@@ -197,7 +199,7 @@ export default {
       }
     },
 
-    startTimer() {
+    startTimer(currentInterval) {
       let audioContext;
       try {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -210,9 +212,9 @@ export default {
         oscillator.start();
         setTimeout(() => {
           oscillator.stop();
-        }, 200);
+        }, 300);
       }
-      let secondsLeft = this.timer.countdown - 1;
+      let secondsLeft = currentInterval;
       const interval = setInterval(() => {
         if (secondsLeft <= 0) {
           clearInterval(interval);
@@ -227,7 +229,12 @@ export default {
             oscillator.start();
             setTimeout(() => {
               oscillator.stop();
-            }, 800);
+            }, 300);
+          }
+          // Starting function again by recurrency
+          this.intervals.shift();
+          if (this.intervals.length > 0) {
+            this.startTimer(this.intervals[0]);
           }
         }
         document.getElementById('timer-running').innerHTML = secondsLeft;
