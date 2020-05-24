@@ -181,13 +181,17 @@ export default {
         while (exCounter > 0) {
           this.intervals.push(tRef.exerciseDuration);
           if (restCounter > 0) {
-            this.intervals.push(tRef.restBetweenEx);
+            if (tRef.restBetweenEx > 0) {
+              this.intervals.push(tRef.restBetweenEx);
+            }
             restCounter -= 1;
           }
           exCounter -= 1;
         }
         if (rdCounter > 1) {
-          this.intervals.push(tRef.restBetweenRounds);
+          if (tRef.restBetweenRounds > 0) {
+            this.intervals.push(tRef.restBetweenRounds);
+          }
         }
         rdCounter -= 1;
       }
