@@ -26,8 +26,8 @@
       </div>
 
       <div id="timer-section">
-          <p>Time remaining: <span id="timer-running">{{ timer.countdown }}</span>
-          </p>
+          <!-- <p>Time remaining: <span id="timer-running">{{ timer.countdown }}</span>
+          </p> -->
           <p>Total time: {{ totalMinutes() }} min {{ totalSeconds() }} sec</p>
         </div>
 
@@ -47,8 +47,7 @@
             v-model="timer.countdown"
             type="number"
             class="form-control form-control-sm"
-            id="colFormLabelSm"
-            @keyup="resetTimer">
+            id="colFormLabelSm">
           </div>
 
           <div class="form-group">
@@ -142,10 +141,15 @@ export default {
   methods: {
     totalInSeconds() {
       const tRef = this.timer;
-      const totalSec = tRef.countdown
+      let prepare = tRef.countdown;
+      if (tRef.countdown === '') {
+        prepare = 0;
+      }
+      const totalSec = prepare * 1
       + tRef.exerciseDuration * tRef.noOfExercises * tRef.noOfRounds
       + tRef.restBetweenEx * (tRef.noOfExercises - 1) * tRef.noOfRounds
       + tRef.restBetweenRounds * (tRef.noOfRounds - 1);
+      console.log(typeof (totalSec));
       return totalSec;
     },
 
@@ -156,6 +160,7 @@ export default {
 
     totalSeconds() {
       const seconds = this.totalInSeconds() - (this.totalMinutes() * 60);
+      console.log(this.totalInSeconds());
       return seconds;
     },
 
@@ -196,6 +201,7 @@ export default {
         secondsLeft -= 1;
       }, 1000);
     },
+
     resetTimer() {
       document.getElementById('timer-running').innerHTML = this.timer.countdown;
     },
