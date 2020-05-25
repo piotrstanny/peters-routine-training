@@ -45,7 +45,7 @@
             type="button"
             class="btn btn-block btn-info btn-lg text-body"
             @click="startTimer(intervals[0])">
-            FINISH</button>
+            <strong>FINISH</strong></button>
           </div>
         </div>
       </div>
@@ -61,8 +61,7 @@
           type="button"
           class="btn btn-block btn-info"
           @click="setupTimer()">
-          <!-- @click="startTimer(intervals[0])" -->
-          Start Workout</button>
+          <strong>Start Workout</strong></button>
         </div>
 
         <div class="col-4 pt-4 pl-0">
@@ -219,12 +218,6 @@ export default {
     },
     // end TIME CALCULATION
 
-    setupTimer() {
-      this.timerReady = true;
-      this.createIntervalsArray();
-      this.remaining = this.totalInSeconds();
-    },
-
     createIntervalsArray() {
       const tRef = this.timer;
       if (tRef.countdown > 0) {
@@ -253,47 +246,68 @@ export default {
       }
     },
 
-    startTimer(currentInterval) {
+    setupTimer() {
+      this.timerReady = true;
+      this.createIntervalsArray();
+      this.remaining = this.totalInSeconds();
+    },
+
+    // AUDIO METHODS
+
+    audioCheck() {
       let audioContext;
       try {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
       } catch (error) {
         window.alert('Sorry, but your browser doesn\'t support the Web Audio API!');
       }
-      if (audioContext !== undefined) {
-        const oscillator = audioContext.createOscillator();
-        oscillator.connect(audioContext.destination);
+      return audioContext;
+    },
+
+    shortBeep() {
+      const audioCtx = this.audioCheck();
+      if (audioCtx !== undefined) {
+        const oscillator = audioCtx.createOscillator();
+        oscillator.type = 'triangle';
+        oscillator.connect(audioCtx.destination);
         oscillator.start();
         setTimeout(() => {
           oscillator.stop();
-        }, 300);
+        }, 200);
       }
-      let secondsLeft = currentInterval;
-      const interval = setInterval(() => {
-        if (secondsLeft <= 0) {
-          clearInterval(interval);
-          try {
-            audioContext = new (window.AudioContext || window.webkitAudioContext)();
-          } catch (error) {
-            window.alert('Sorry, but your browser doesn\'t support the Web Audio API!');
-          }
-          if (audioContext !== undefined) {
-            const oscillator = audioContext.createOscillator();
-            oscillator.connect(audioContext.destination);
-            oscillator.start();
-            setTimeout(() => {
-              oscillator.stop();
-            }, 300);
-          }
-          // Starting function again by recurrency
-          this.intervals.shift();
-          if (this.intervals.length > 0) {
-            this.startTimer(this.intervals[0]);
-          }
-        }
-        document.getElementById('timer-running').innerHTML = secondsLeft;
-        secondsLeft -= 1;
-      }, 1000);
+    },
+
+    longBeep() {
+      const audioCtx = this.audioCheck();
+      if (audioCtx !== undefined) {
+        const oscillator = audioCtx.createOscillator();
+        oscillator.type = 'sine';
+        oscillator.connect(audioCtx.destination);
+        oscillator.start();
+        setTimeout(() => {
+          oscillator.stop();
+        }, 800);
+      }
+    },
+    // end AUDIO METHODS
+
+
+    startTimer(currentInterval) {
+      this.shortBeep();
+      console.log(currentInterval);
+      // let secondsLeft = currentInterval;
+      // const interval = setInterval(() => {
+      //   if (secondsLeft <= 0) {
+      //     clearInterval(interval);
+      //     // Starting function again by recurrency
+      //     this.intervals.shift();
+      //     if (this.intervals.length > 0) {
+      //       this.startTimer(this.intervals[0]);
+      //     }
+      //   }
+      //   document.getElementById('timer-running').innerHTML = secondsLeft;
+      //   secondsLeft -= 1;
+      // }, 1000);
     },
   },
 };
