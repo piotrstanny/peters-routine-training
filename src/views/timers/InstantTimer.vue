@@ -8,7 +8,7 @@
     <form class="col-sm-8">
 
       <div class="row justify-content-center">
-        <div class="col-8 p-4">
+        <div class="col-8 pb-1 pt-4 pl-4">
           <button
           type="button"
           class="btn btn-block btn-info"
@@ -16,34 +16,36 @@
           Start Workout</button>
         </div>
 
-        <div class="col-3 pl-0 pt-4 pr-4">
+        <div class="col-4 pt-4 pl-0">
+        <p>Total time:<br>{{ totalMinutes() }} min {{ totalSeconds() }} sec</p>
+        </div>
+
+        <!-- <div class="col-3 pl-0 pt-4 pr-4">
           <button
           type="button"
           class="btn btn-block btn-danger"
           @click="resetTimer()">
           Reset</button>
-        </div>
+        </div> -->
       </div>
 
-      <div id="timer-section">
-          <!-- <p>Time remaining: <span id="timer-running">{{ timer.countdown }}</span>
-          </p> -->
-          <p>Total time: {{ totalMinutes() }} min {{ totalSeconds() }} sec</p>
-          <p>Number of intervals: {{ intervals.length }}</p>
-          <h1 id="timer-running">00:00</h1>
-          <p>Intervals: <span v-for="(i, index) in intervals" :key="index">{{ i }}, </span>
-            <button
-            @click="createIntervalsArray()"
-            type="button"
-            class="btn btn-sm btn-info">Add</button>
-          </p>
-        </div>
+      <div v-if="timerRunning" id="timer-section">
+        <p>Remaining time: </p>
+        <p>Number of intervals: {{ intervals.length }}</p>
+        <h1><span id="timer-running">0</span> sec</h1>
+        <p>Intervals: <span v-for="(i, index) in intervals" :key="index">{{ i }}, </span>
+          <button
+          @click="createIntervalsArray()"
+          type="button"
+          class="btn btn-sm btn-info">Add</button>
+        </p>
+      </div>
 
-      <div class="card bg-dark m-1 mt-2">
+      <div v-else class="card bg-dark m-1 mt-2">
         <div class="card-header font-weight-bold">
           Timer Details
         </div>
-        <div class="card-body p-3">
+        <div class="card-body pt-1">
 
           <div class="form-group">
             <label
@@ -144,10 +146,12 @@ export default {
         restBetweenRounds: 90,
       },
       intervals: [],
+      timerRunning: false,
     };
   },
 
   methods: {
+    // TOTAL TIME CALCULATION
     totalInSeconds() {
       const tRef = this.timer;
       let prepare = tRef.countdown;
@@ -170,6 +174,7 @@ export default {
       const seconds = this.totalInSeconds() - (this.totalMinutes() * 60);
       return seconds;
     },
+    // end TOTAL TIME CALCULATION
 
     createIntervalsArray() {
       const tRef = this.timer;
@@ -241,10 +246,6 @@ export default {
         secondsLeft -= 1;
       }, 1000);
     },
-
-    resetTimer() {
-      document.getElementById('timer-running').innerHTML = this.timer.countdown;
-    },
   },
 };
 </script>
@@ -262,7 +263,6 @@ export default {
   #timer-section {
     text-align: center;
     background-color: black;
-    // height: 50px;
     line-height: 50px;
     font-size: 1.5em;
   }
