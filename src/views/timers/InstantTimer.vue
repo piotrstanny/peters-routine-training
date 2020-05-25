@@ -5,14 +5,26 @@
   </div>
 
   <div class="timer-container">
-    <form class="col-sm-8">
+
+    <div v-if="timerReady" class="row justify-content-center">
+      <div class="col-sm-8">
+        <div id="timer-section" class="p-2">
+          <p>Remaining time: </p>
+          <p>Number of intervals: {{ intervals.length }}</p>
+          <h1><span id="timer-running">0</span> sec</h1>
+        </div>
+      </div>
+    </div>
+
+    <form v-else class="col-sm-8">
 
       <div class="row justify-content-center">
         <div class="col-8 pb-1 pt-4 pl-4">
           <button
           type="button"
           class="btn btn-block btn-info"
-          @click="startTimer(intervals[0])">
+          @click="setupTimer()">
+          <!-- @click="startTimer(intervals[0])" -->
           Start Workout</button>
         </div>
 
@@ -29,19 +41,7 @@
         </div> -->
       </div>
 
-      <div v-if="timerRunning" id="timer-section">
-        <p>Remaining time: </p>
-        <p>Number of intervals: {{ intervals.length }}</p>
-        <h1><span id="timer-running">0</span> sec</h1>
-        <p>Intervals: <span v-for="(i, index) in intervals" :key="index">{{ i }}, </span>
-          <button
-          @click="createIntervalsArray()"
-          type="button"
-          class="btn btn-sm btn-info">Add</button>
-        </p>
-      </div>
-
-      <div v-else class="card bg-dark m-1 mt-2">
+      <div class="card bg-dark m-1 mt-2">
         <div class="card-header font-weight-bold">
           Timer Details
         </div>
@@ -146,7 +146,7 @@ export default {
         restBetweenRounds: 90,
       },
       intervals: [],
-      timerRunning: false,
+      timerReady: false,
     };
   },
 
@@ -175,6 +175,11 @@ export default {
       return seconds;
     },
     // end TOTAL TIME CALCULATION
+
+    setupTimer() {
+      this.timerReady = true;
+      this.createIntervalsArray();
+    },
 
     createIntervalsArray() {
       const tRef = this.timer;
