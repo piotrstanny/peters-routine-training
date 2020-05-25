@@ -5,21 +5,47 @@
     <div v-if="timerReady" class="row justify-content-center m-0">
       <div class="col-sm-8">
         <div id="timer-section" class="pt-2">
-          <p>Remaining: {{ totalMinutes() }} min {{ totalSeconds() }} sec</p>
+          <p>Remaining: {{ calculateTime(remaining) }}</p>
           <h2>Work</h2>
           <h1
           style="font-size: 2.8em; font-family: Arial"
           id="timer-running">
           {{ intervals[0] }}
           </h1>
-          <div class="row justify-content-around   m-0">
+          <div class="row justify-content-around m-0">
             <div class="col-4">
-              Elapsed:<br>{{ elapsedTime() }}
+              Elapsed:<br>{{ calculateTime(elapsed) }}
             </div>
 
             <div class="col-4">
             Interval:<br>{{ intervalCounter }}/{{ intervals.length }}
             </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-between m-0 pt-3">
+          <div class="col-4 p-1">
+            <button
+            type="button"
+            class="btn btn-block btn-warning btn-lg"
+            @click="startTimer(intervals[0])">
+            <i class="fas fa-play text-body"></i></button>
+          </div>
+
+          <div class="col-3 p-1 pl-3 pr-0 ml-4">
+            <button
+            type="button"
+            class="btn btn-block btn-danger btn-lg"
+            @click="resetTimer()">
+            <i class="fas fa-redo-alt text-body"></i></button>
+          </div>
+
+          <div class="col-4 p-1 pl-0">
+            <button
+            type="button"
+            class="btn btn-block btn-info btn-lg text-body"
+            @click="startTimer(intervals[0])">
+            FINISH</button>
           </div>
         </div>
       </div>
@@ -40,16 +66,8 @@
         </div>
 
         <div class="col-4 pt-4 pl-0">
-        <p>Total time:<br>{{ totalMinutes() }} min {{ totalSeconds() }} sec</p>
+        <p>Total time:<br>{{ calculateTime(totalInSeconds()) }}</p>
         </div>
-
-        <!-- <div class="col-3 pl-0 pt-4 pr-4">
-          <button
-          type="button"
-          class="btn btn-block btn-danger"
-          @click="resetTimer()">
-          Reset</button>
-        </div> -->
       </div>
 
       <div class="card bg-dark m-1 mt-2">
@@ -160,6 +178,7 @@ export default {
       intervals: [],
       intervalCounter: 1,
       elapsed: 0,
+      remaining: 0,
     };
   },
 
@@ -177,36 +196,33 @@ export default {
       + tRef.restBetweenRounds * (tRef.noOfRounds - 1);
       return totalSec;
     },
-
-    totalMinutes() {
-      const minutes = Math.floor(this.totalInSeconds() / 60);
-      return minutes;
-    },
-
-    totalSeconds() {
-      const seconds = this.totalInSeconds() - (this.totalMinutes() * 60);
-      return seconds;
-    },
     // end TOTAL TIME CALCULATION
 
-    // ELAPSED TIME CALCULATION
-    elapsedTime() {
-      const totalSeconds = this.elapsed;
+    // TIME CALCULATION
+    calculateTime(sec) {
+      const totalSeconds = sec;
       let minutes = '00';
       let seconds = '00';
       if (totalSeconds > 0) {
         minutes = Math.floor(totalSeconds / 60);
+        if (minutes < 10) {
+          minutes = `0${minutes}`;
+        }
       }
       if (totalSeconds > 0) {
         seconds = totalSeconds - (minutes * 60);
+        if (seconds < 10) {
+          seconds = `0${seconds}`;
+        }
       }
       return `${minutes}:${seconds}`;
     },
-    // end ELAPSED TIME CALCULATION
+    // end TIME CALCULATION
 
     setupTimer() {
       this.timerReady = true;
       this.createIntervalsArray();
+      this.remaining = this.totalInSeconds();
     },
 
     createIntervalsArray() {
