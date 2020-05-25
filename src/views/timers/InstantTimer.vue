@@ -1,23 +1,34 @@
 <template>
 <div>
-  <div>
-  <h3 class="pt-4">Instant Timer</h3>
-  </div>
+  <div class="timer-container pt-3">
 
-  <div class="timer-container">
-
-    <div v-if="timerReady" class="row justify-content-center">
+    <div v-if="timerReady" class="row justify-content-center m-0">
       <div class="col-sm-8">
-        <div id="timer-section" class="p-2">
-          <p>Remaining time: </p>
-          <p>Number of intervals: {{ intervals.length }}</p>
-          <h1><span id="timer-running">0</span> sec</h1>
+        <div id="timer-section" class="pt-2">
+          <p>Remaining: {{ totalMinutes() }} min {{ totalSeconds() }} sec</p>
+          <h2>Work</h2>
+          <h1
+          style="font-size: 2.8em; font-family: Arial"
+          id="timer-running">
+          {{ intervals[0] }}
+          </h1>
+          <div class="row justify-content-around   m-0">
+            <div class="col-4">
+              Elapsed:<br>{{ elapsedTime() }}
+            </div>
+
+            <div class="col-4">
+            Interval:<br>{{ intervalCounter }}/{{ intervals.length }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <form v-else class="col-sm-8">
-
+      <div>
+        <h3 class="pt-4 text-center">Instant Timer</h3>
+      </div>
       <div class="row justify-content-center">
         <div class="col-8 pb-1 pt-4 pl-4">
           <button
@@ -145,8 +156,10 @@ export default {
         noOfRounds: 4,
         restBetweenRounds: 90,
       },
-      intervals: [],
       timerReady: false,
+      intervals: [],
+      intervalCounter: 1,
+      elapsed: 0,
     };
   },
 
@@ -175,6 +188,21 @@ export default {
       return seconds;
     },
     // end TOTAL TIME CALCULATION
+
+    // ELAPSED TIME CALCULATION
+    elapsedTime() {
+      const totalSeconds = this.elapsed;
+      let minutes = '00';
+      let seconds = '00';
+      if (totalSeconds > 0) {
+        minutes = Math.floor(totalSeconds / 60);
+      }
+      if (totalSeconds > 0) {
+        seconds = totalSeconds - (minutes * 60);
+      }
+      return `${minutes}:${seconds}`;
+    },
+    // end ELAPSED TIME CALCULATION
 
     setupTimer() {
       this.timerReady = true;
@@ -261,6 +289,10 @@ export default {
     display: inline-block;
   }
 
+  .text-center {
+    text-align: center;
+  }
+
   .timer-container {
     text-align: center;
   }
@@ -268,7 +300,6 @@ export default {
   #timer-section {
     text-align: center;
     background-color: black;
-    line-height: 50px;
     font-size: 1.5em;
   }
 </style>
