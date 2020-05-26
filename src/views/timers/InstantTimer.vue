@@ -4,12 +4,19 @@
 
     <div v-if="timerReady" class="row justify-content-center m-0">
       <div class="col-sm-8">
-        <div id="timer-section" class="pt-2">
+        <div id="timer-section" class="pt-3">
           <p>Remaining: {{ calculateTime(remaining) }}</p>
-          <h2>Work</h2>
+          <div
+          class="row justify-content-center m-0"
+          :style="{'background-color': activeColor}">
+            <h2 class="m-0 p-0" style="color: black; line-height: 1.5">{{ intervalText }}</h2>
+          </div>
 
           <div class="row justify-content-between m-0">
-            <div class="col-3 align-self-center">
+            <div
+            class="col-3 align-self-center"
+            style="cursor: pointer"
+            @click="previousInterval()">
               <i class="fas fa-step-forward fa-lg fa-flip-horizontal"></i>
             </div>
             <div class="col-4">
@@ -204,6 +211,8 @@ export default {
         restBetweenRounds: 90,
       },
       timerReady: false,
+      activeColor: 'black',
+      intervalText: '',
       timerFinished: false,
       intervals: [],
       interval: '',
@@ -286,6 +295,29 @@ export default {
       this.createIntervalsArray();
       this.remaining = this.totalInSeconds();
       this.secondsLeft = this.intervals[this.intervalCounter - 1];
+      this.activeInterval();
+    },
+
+    activeInterval() {
+      const currInterval = this.intervals[this.intervalCounter - 1];
+      if (currInterval === this.timer.countdown) {
+        this.activeColor = '#c0e289';
+        this.intervalText = 'Prepare';
+      } else if (currInterval === this.timer.exerciseDuration) {
+        this.activeColor = '#ea4f4f';
+        this.intervalText = 'Work';
+      } else if (currInterval === this.timer.restBetweenEx) {
+        this.activeColor = '#fbf5a8';
+        this.intervalText = 'Rest';
+      } else {
+        this.activeColor = '#c2f0fc';
+        this.intervalText = 'Round done! Rest';
+      }
+    },
+
+    finalIntText() {
+      this.activeColor = '#649d66';
+      this.intervalText = 'Well Done!!';
     },
 
     // AUDIO METHODS
@@ -330,6 +362,7 @@ export default {
     // BUTTONS ACTIONS
     startTimer(currentInterval) {
       this.secondsLeft = currentInterval;
+      this.activeInterval();
       this.interval = setInterval(() => {
         if (this.secondsLeft > 1) {
           this.secondsLeft -= 1;
@@ -359,6 +392,7 @@ export default {
           this.remaining -= 1;
           this.elapsed += 1;
           this.isBtnDisabled = false;
+          this.finalIntText();
         }
       }, 1000);
     },
@@ -383,6 +417,7 @@ export default {
       this.intervalCounter = 1;
       this.secondsLeft = this.intervals[this.intervalCounter - 1];
       document.getElementById('current-interval').innerHTML = this.secondsLeft;
+      this.activeInterval();
     },
 
     finishTimer() {
@@ -403,6 +438,35 @@ export default {
         this.secondsLeft = this.intervals[this.intervalCounter - 1];
         document.getElementById('current-interval').innerHTML = this.secondsLeft;
         this.startTimer(this.secondsLeft);
+      }
+    },
+
+    previousInterval() {
+      if (this.intervalCounter > 1) {
+        this.paused = false;
+        this.isBtnDisabled = true;
+        this.shortBeep();
+        clearInterval(this.interval);
+
+        if ((this.intervals[this.intervalCounter - 1] - this.secondsLeft) < 3) {
+          this.remaining += this.intervals[this.intervalCounter - 2]
+          + (this.intervals[this.intervalCounter - 1] - this.secondsLeft);
+          this.elapsed = (this.elapsed * 1)
+          - (this.intervals[this.intervalCounter - 2]
+          + (this.intervals[this.intervalCounter - 1] - this.secondsLeft));
+          this.intervalCounter -= 1;
+          this.secondsLeft = this.intervals[this.intervalCounter - 1];
+          document.getElementById('current-interval').innerHTML = this.secondsLeft;
+          this.startTimer(this.secondsLeft);
+        } else {
+          this.remaining += (this.intervals[this.intervalCounter - 1] - this.secondsLeft);
+          this.elapsed = (this.elapsed * 1)
+          - (this.intervals[this.intervalCounter - 1] - this.secondsLeft);
+          // this.intervalCounter -= 1;
+          this.secondsLeft = this.intervals[this.intervalCounter - 1];
+          document.getElementById('current-interval').innerHTML = this.secondsLeft;
+          this.startTimer(this.secondsLeft);
+        }
       }
     },
   },
