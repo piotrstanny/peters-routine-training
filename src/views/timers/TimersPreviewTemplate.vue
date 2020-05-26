@@ -3,7 +3,7 @@
     <div class="card-body p-3">
       <div class="justify-content-between d-flex">
         <h5 class="card-title">
-          <slot name="title">Quick Setup Timer</slot>
+          <slot name="title">Instant Timer</slot>
         </h5>
         <small>
           Total time:

@@ -1,17 +1,32 @@
 <template>
 <div>
-  <div class="timer-container pt-3">
+  <div class="timer-container pt-5">
 
     <div v-if="timerReady" class="row justify-content-center m-0">
       <div class="col-sm-8">
         <div id="timer-section" class="pt-2">
           <p>Remaining: {{ calculateTime(remaining) }}</p>
           <h2>Work</h2>
-          <h1
-          style="font-size: 4.0em; font-family: Arial"
-          id="current-interval">
-          {{ secondsLeft }}
-          </h1>
+
+          <div class="row justify-content-between m-0">
+            <div class="col-3 align-self-center">
+              <i class="fas fa-step-forward fa-lg fa-flip-horizontal"></i>
+            </div>
+            <div class="col-4">
+              <h1
+              style="font-size: 4.0em; font-family: Arial"
+              id="current-interval">
+              {{ secondsLeft }}
+              </h1>
+            </div>
+            <div
+            class="col-3 align-self-center"
+            style="cursor: pointer"
+            @click="playButton()">
+              <i class="fas fa-step-forward fa-lg"></i>
+            </div>
+          </div>
+
           <div class="row justify-content-around m-0">
             <div class="col-4">
               Elapsed:<br>{{ calculateTime(elapsed) }}
