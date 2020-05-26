@@ -9,7 +9,7 @@
           <h2>Work</h2>
           <h1
           style="font-size: 2.8em; font-family: Arial"
-          id="timer-running">
+          id="current-interval">
           {{ intervals[0] }}
           </h1>
           <div class="row justify-content-around m-0">
@@ -36,7 +36,7 @@
             <button
             type="button"
             class="btn btn-block btn-danger btn-lg"
-            @click="resetTimer()">
+            @click="restartTimer()">
             <i class="fas fa-redo-alt text-body"></i></button>
           </div>
 
@@ -273,7 +273,7 @@ export default {
         oscillator.start();
         setTimeout(() => {
           oscillator.stop();
-        }, 200);
+        }, 300);
       }
     },
 
@@ -291,23 +291,64 @@ export default {
     },
     // end AUDIO METHODS
 
-
     startTimer(currentInterval) {
       this.shortBeep();
-      console.log(currentInterval);
-      // let secondsLeft = currentInterval;
-      // const interval = setInterval(() => {
-      //   if (secondsLeft <= 0) {
-      //     clearInterval(interval);
-      //     // Starting function again by recurrency
-      //     this.intervals.shift();
-      //     if (this.intervals.length > 0) {
-      //       this.startTimer(this.intervals[0]);
-      //     }
-      //   }
-      //   document.getElementById('timer-running').innerHTML = secondsLeft;
-      //   secondsLeft -= 1;
-      // }, 1000);
+      let secondsLeft = currentInterval;
+      const interval = setInterval(() => {
+        if (secondsLeft > 1) {
+          secondsLeft -= 1;
+          document.getElementById('current-interval').innerHTML = secondsLeft;
+          this.remaining -= 1;
+          this.elapsed += 1;
+        } else if (this.intervalCounter < this.intervals.length) {
+          clearInterval(interval);
+          secondsLeft -= 1;
+          document.getElementById('current-interval').innerHTML = secondsLeft;
+          this.remaining -= 1;
+          this.elapsed += 1;
+          this.intervalCounter += 1;
+          this.startTimer(this.intervals[this.intervalCounter - 1]);
+          console.log(this.intervalCounter);
+        } else {
+          clearInterval(interval);
+          const lastInterval = setInterval(() => {
+            if (secondsLeft > 1) {
+              secondsLeft -= 1;
+              document.getElementById('current-interval').innerHTML = secondsLeft;
+              this.remaining -= 1;
+              this.elapsed += 1;
+            } else {
+              this.shortBeep();
+              secondsLeft -= 1;
+              document.getElementById('current-interval').innerHTML = secondsLeft;
+              this.remaining -= 1;
+              this.elapsed += 1;
+              clearInterval(lastInterval);
+            }
+            // this.intervalCounter -= 1;
+            // document.getElementById('current-interval').innerHTML = 0;
+          }, 1000);
+        }
+
+        // if (secondsLeft <= 0) {
+        //   // Starting function again by recurrency
+        //   if (this.intervalCounter <= this.intervals.length) {
+        //     this.startTimer(this.intervals[this.intervalCounter]);
+        //     this.intervalCounter += 1;
+        //   } else {
+        //     this.longBeep();
+        //     clearInterval(interval);
+        //   }
+        // }
+      }, 1000);
+    },
+
+    restartTimer() {
+      this.remaining = this.totalInSeconds();
+      this.elapsed = 0;
+      const firstInterval = this.intervals[0];
+      this.intervalCounter = 1;
+      document.getElementById('current-interval').innerHTML = firstInterval;
     },
   },
 };
