@@ -358,6 +358,7 @@ export default {
           document.getElementById('current-interval').innerHTML = this.secondsLeft;
           this.remaining -= 1;
           this.elapsed += 1;
+          this.isBtnDisabled = false;
         }
       }, 1000);
     },
@@ -397,7 +398,7 @@ export default {
         this.shortBeep();
         clearInterval(this.interval);
         this.remaining -= this.secondsLeft;
-        this.elapsed += this.secondsLeft;
+        this.elapsed = (this.elapsed * 1) + (this.secondsLeft * 1);
         this.intervalCounter += 1;
         this.secondsLeft = this.intervals[this.intervalCounter - 1];
         document.getElementById('current-interval').innerHTML = this.secondsLeft;
