@@ -23,9 +23,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  #welcome {
-    margin-top: 30vh;
-    font-size: 1.2rem;
-    text-shadow: 2px 2px 4px black;
+#welcome {
+  font-size: 1.2rem;
+  text-shadow: 2px 2px 4px black;
+  animation: appear 1.5s ease-out forwards;
+  animation-delay: .5s;
+  padding-top: 30vh;
+  opacity: 0;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
   }
+
+  to {
+    opacity: 1;
+  }
+}
 </style>

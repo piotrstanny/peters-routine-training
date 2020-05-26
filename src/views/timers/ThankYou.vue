@@ -21,8 +21,7 @@ export default {
 
 <style lang="scss" scoped>
 #thankyou-text {
-  // padding-top: 50vh;
-  animation: slide-down 1.5s ease-out forwards;
+  animation: slide-down 1.2s ease-out forwards;
   text-shadow: 1px 1px 2px black;
 }
 
