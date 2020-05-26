@@ -10,7 +10,7 @@
           <h1
           style="font-size: 4.0em; font-family: Arial"
           id="current-interval">
-          {{ intervals[intervalCounter - 1] }}
+          {{ secondsLeft }}
           </h1>
           <div class="row justify-content-around m-0">
             <div class="col-4">
@@ -181,7 +181,9 @@ export default {
       },
       timerReady: false,
       intervals: [],
+      interval: '',
       intervalCounter: 1,
+      secondsLeft: 0,
       elapsed: 0,
       remaining: 0,
       paused: true,
@@ -257,6 +259,7 @@ export default {
       this.timerReady = true;
       this.createIntervalsArray();
       this.remaining = this.totalInSeconds();
+      this.secondsLeft = this.intervals[this.intervalCounter - 1];
     },
 
     // AUDIO METHODS
@@ -280,7 +283,7 @@ export default {
         oscillator.start();
         setTimeout(() => {
           oscillator.stop();
-        }, 300);
+        }, 200);
       }
     },
 
@@ -302,32 +305,34 @@ export default {
     playButton() {
       this.paused = false;
       this.shortBeep();
-      this.startTimer(this.intervals[this.intervalCounter - 1]);
+      this.startTimer(this.secondsLeft);
     },
 
     pauseButton() {
       this.paused = true;
+      this.shortBeep();
+      clearInterval(this.interval);
     },
 
     startTimer(currentInterval) {
-      let secondsLeft = currentInterval;
-      const interval = setInterval(() => {
-        if (secondsLeft > 1) {
-          secondsLeft -= 1;
-          document.getElementById('current-interval').innerHTML = secondsLeft;
+      this.secondsLeft = currentInterval;
+      this.interval = setInterval(() => {
+        if (this.secondsLeft > 1) {
+          this.secondsLeft -= 1;
+          document.getElementById('current-interval').innerHTML = this.secondsLeft;
           this.remaining -= 1;
           this.elapsed += 1;
         } else if (this.intervalCounter < this.intervals.length) {
-          clearInterval(interval);
-          this.longBeep(500);
-          secondsLeft -= 1;
-          document.getElementById('current-interval').innerHTML = secondsLeft;
+          clearInterval(this.interval);
+          this.longBeep(700);
+          this.secondsLeft -= 1;
+          document.getElementById('current-interval').innerHTML = this.secondsLeft;
           this.remaining -= 1;
           this.elapsed += 1;
           this.intervalCounter += 1;
           this.startTimer(this.intervals[this.intervalCounter - 1]);
         } else {
-          clearInterval(interval);
+          clearInterval(this.interval);
           this.longBeep(400);
           setTimeout(() => {
             this.longBeep(400);
@@ -335,8 +340,8 @@ export default {
               this.longBeep(900);
             }, 500);
           }, 500);
-          secondsLeft -= 1;
-          document.getElementById('current-interval').innerHTML = secondsLeft;
+          this.secondsLeft -= 1;
+          document.getElementById('current-interval').innerHTML = this.secondsLeft;
           this.remaining -= 1;
           this.elapsed += 1;
         }
