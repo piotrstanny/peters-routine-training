@@ -8,7 +8,7 @@
           <p>Remaining: {{ calculateTime(remaining) }}</p>
           <h2>Work</h2>
           <h1
-          style="font-size: 2.8em; font-family: Arial"
+          style="font-size: 4.0em; font-family: Arial"
           id="current-interval">
           {{ intervals[0] }}
           </h1>
@@ -277,7 +277,7 @@ export default {
       }
     },
 
-    longBeep() {
+    longBeep(milisec) {
       const audioCtx = this.audioCheck();
       if (audioCtx !== undefined) {
         const oscillator = audioCtx.createOscillator();
@@ -286,7 +286,7 @@ export default {
         oscillator.start();
         setTimeout(() => {
           oscillator.stop();
-        }, 800);
+        }, milisec);
       }
     },
     // end AUDIO METHODS
@@ -308,38 +308,20 @@ export default {
           this.elapsed += 1;
           this.intervalCounter += 1;
           this.startTimer(this.intervals[this.intervalCounter - 1]);
-          console.log(this.intervalCounter);
         } else {
           clearInterval(interval);
-          const lastInterval = setInterval(() => {
-            if (secondsLeft > 1) {
-              secondsLeft -= 1;
-              document.getElementById('current-interval').innerHTML = secondsLeft;
-              this.remaining -= 1;
-              this.elapsed += 1;
-            } else {
-              this.shortBeep();
-              secondsLeft -= 1;
-              document.getElementById('current-interval').innerHTML = secondsLeft;
-              this.remaining -= 1;
-              this.elapsed += 1;
-              clearInterval(lastInterval);
-            }
-            // this.intervalCounter -= 1;
-            // document.getElementById('current-interval').innerHTML = 0;
-          }, 1000);
+          this.longBeep(400);
+          setTimeout(() => {
+            this.longBeep(400);
+            setTimeout(() => {
+              this.longBeep(900);
+            }, 500);
+          }, 500);
+          secondsLeft -= 1;
+          document.getElementById('current-interval').innerHTML = secondsLeft;
+          this.remaining -= 1;
+          this.elapsed += 1;
         }
-
-        // if (secondsLeft <= 0) {
-        //   // Starting function again by recurrency
-        //   if (this.intervalCounter <= this.intervals.length) {
-        //     this.startTimer(this.intervals[this.intervalCounter]);
-        //     this.intervalCounter += 1;
-        //   } else {
-        //     this.longBeep();
-        //     clearInterval(interval);
-        //   }
-        // }
       }, 1000);
     },
 
