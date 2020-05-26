@@ -48,12 +48,14 @@
           </div>
 
           <div class="col-4 p-1 pl-0">
-            <button
+            <router-link
+            :to="{name: 'ThankYou'}"
+            tag="button"
             type="button"
             class="btn btn-block btn-info btn-lg text-black"
-            @click="finishTimer()"
+
             :disabled="isBtnDisabled">
-            <strong>FINISH</strong></button>
+            <strong>FINISH</strong></router-link>
           </div>
         </div>
       </div>
@@ -181,7 +183,7 @@ export default {
       timer: {
         countdown: 5,
         noOfExercises: 5,
-        exerciseDuration: 45,
+        exerciseDuration: 30,
         restBetweenEx: 20,
         noOfRounds: 4,
         restBetweenRounds: 90,

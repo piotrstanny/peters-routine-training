@@ -33,6 +33,11 @@ const routes = [
         name: 'InstantTimer',
         component: () => import(/* webpackChunkName: "timers" */ '../views/timers/InstantTimer.vue'),
       },
+      {
+        path: '/thank-you',
+        name: 'ThankYou',
+        component: () => import(/* webpackChunkName: "timers" */ '../views/timers/ThankYou.vue'),
+      },
     ],
   },
   {

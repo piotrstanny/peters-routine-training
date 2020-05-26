@@ -61,9 +61,6 @@ export default {
   // }
 }
 
-#img-container {
-  width: 100%;
-}
 .bg-image {
   position: fixed;
   left: 0;
