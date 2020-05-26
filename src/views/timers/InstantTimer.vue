@@ -10,7 +10,7 @@
           <h1
           style="font-size: 4.0em; font-family: Arial"
           id="current-interval">
-          {{ intervals[0] }}
+          {{ intervals[intervalCounter - 1] }}
           </h1>
           <div class="row justify-content-around m-0">
             <div class="col-4">
@@ -25,11 +25,17 @@
 
         <div class="row justify-content-between m-0 pt-3">
           <div class="col-4 p-1">
-            <button
+            <button v-if="paused"
             type="button"
             class="btn btn-block btn-warning btn-lg"
-            @click="startTimer(intervals[0])">
-            <i class="fas fa-play text-body"></i></button>
+            @click="playButton()">
+            <i class="fas fa-play text-black"></i></button>
+
+            <button v-else
+            type="button"
+            class="btn btn-block btn-warning btn-lg"
+            @click="pauseButton()">
+            <i class="fas fa-pause text-black"></i></button>
           </div>
 
           <div class="col-3 p-1 pl-3 pr-0 ml-4">
@@ -37,13 +43,13 @@
             type="button"
             class="btn btn-block btn-danger btn-lg"
             @click="restartTimer()">
-            <i class="fas fa-redo-alt text-body"></i></button>
+            <i class="fas fa-redo-alt text-black"></i></button>
           </div>
 
           <div class="col-4 p-1 pl-0">
             <button
             type="button"
-            class="btn btn-block btn-info btn-lg text-body"
+            class="btn btn-block btn-info btn-lg text-black"
             @click="startTimer(intervals[0])">
             <strong>FINISH</strong></button>
           </div>
@@ -178,6 +184,7 @@ export default {
       intervalCounter: 1,
       elapsed: 0,
       remaining: 0,
+      paused: true,
     };
   },
 
@@ -291,8 +298,18 @@ export default {
     },
     // end AUDIO METHODS
 
-    startTimer(currentInterval) {
+    // BUTTONS ACTIONS
+    playButton() {
+      this.paused = false;
       this.shortBeep();
+      this.startTimer(this.intervals[this.intervalCounter - 1]);
+    },
+
+    pauseButton() {
+      this.paused = true;
+    },
+
+    startTimer(currentInterval) {
       let secondsLeft = currentInterval;
       const interval = setInterval(() => {
         if (secondsLeft > 1) {
@@ -302,6 +319,7 @@ export default {
           this.elapsed += 1;
         } else if (this.intervalCounter < this.intervals.length) {
           clearInterval(interval);
+          this.longBeep(500);
           secondsLeft -= 1;
           document.getElementById('current-interval').innerHTML = secondsLeft;
           this.remaining -= 1;
@@ -344,6 +362,10 @@ export default {
 
   .text-center {
     text-align: center;
+  }
+
+  .text-black {
+    color: black;
   }
 
   .timer-container {
