@@ -22,7 +22,7 @@
             <div
             class="col-3 align-self-center"
             style="cursor: pointer"
-            @click="playButton()">
+            @click="nextInterval()">
               <i class="fas fa-step-forward fa-lg"></i>
             </div>
           </div>
@@ -388,6 +388,21 @@ export default {
       this.restartTimer();
       this.timerReady = false;
       this.timerFinished = true;
+    },
+
+    nextInterval() {
+      if (this.intervalCounter < this.intervals.length) {
+        this.paused = false;
+        this.isBtnDisabled = true;
+        this.shortBeep();
+        clearInterval(this.interval);
+        this.remaining -= this.secondsLeft;
+        this.elapsed += this.secondsLeft;
+        this.intervalCounter += 1;
+        this.secondsLeft = this.intervals[this.intervalCounter - 1];
+        document.getElementById('current-interval').innerHTML = this.secondsLeft;
+        this.startTimer(this.secondsLeft);
+      }
     },
   },
 };
