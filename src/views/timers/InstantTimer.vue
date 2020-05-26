@@ -42,7 +42,8 @@
             <button
             type="button"
             class="btn btn-block btn-danger btn-lg"
-            @click="restartTimer()">
+            @click="restartTimer()"
+            :disabled="isBtnDisabled">
             <i class="fas fa-redo-alt text-black"></i></button>
           </div>
 
@@ -50,11 +51,17 @@
             <button
             type="button"
             class="btn btn-block btn-info btn-lg text-black"
-            @click="startTimer(intervals[0])">
+            @click="finishTimer()"
+            :disabled="isBtnDisabled">
             <strong>FINISH</strong></button>
           </div>
         </div>
       </div>
+    </div>
+
+    <div v-else-if="timerFinished" style="padding-top: 30vh">
+      <h4>Thank you for using my Training App.</h4>
+      <p>Stay strong and have a great day!</p>
     </div>
 
     <form v-else class="col-sm-8">
@@ -180,6 +187,7 @@ export default {
         restBetweenRounds: 90,
       },
       timerReady: false,
+      timerFinished: false,
       intervals: [],
       interval: '',
       intervalCounter: 1,
@@ -187,6 +195,7 @@ export default {
       elapsed: 0,
       remaining: 0,
       paused: true,
+      isBtnDisabled: true,
     };
   },
 
@@ -302,18 +311,6 @@ export default {
     // end AUDIO METHODS
 
     // BUTTONS ACTIONS
-    playButton() {
-      this.paused = false;
-      this.shortBeep();
-      this.startTimer(this.secondsLeft);
-    },
-
-    pauseButton() {
-      this.paused = true;
-      this.shortBeep();
-      clearInterval(this.interval);
-    },
-
     startTimer(currentInterval) {
       this.secondsLeft = currentInterval;
       this.interval = setInterval(() => {
@@ -348,12 +345,32 @@ export default {
       }, 1000);
     },
 
+    playButton() {
+      this.paused = false;
+      this.isBtnDisabled = true;
+      this.shortBeep();
+      this.startTimer(this.secondsLeft);
+    },
+
+    pauseButton() {
+      this.paused = true;
+      this.isBtnDisabled = false;
+      this.shortBeep();
+      clearInterval(this.interval);
+    },
+
     restartTimer() {
       this.remaining = this.totalInSeconds();
       this.elapsed = 0;
-      const firstInterval = this.intervals[0];
       this.intervalCounter = 1;
-      document.getElementById('current-interval').innerHTML = firstInterval;
+      this.secondsLeft = this.intervals[this.intervalCounter - 1];
+      document.getElementById('current-interval').innerHTML = this.secondsLeft;
+    },
+
+    finishTimer() {
+      this.restartTimer();
+      this.timerReady = false;
+      this.timerFinished = true;
     },
   },
 };
