@@ -16,6 +16,15 @@ export default function wakeLockApi() {
     };
     // Request a screen wake lock…
     requestWakeLock();
+
+    const handleVisibilityChange = () => {
+      if (wakeLock !== null && document.visibilityState === 'visible') {
+        requestWakeLock();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener('fullscreenchange', handleVisibilityChange);
   } else if ('wakeLock' in navigator && 'request' in navigator.wakeLock) {
     // The wake lock sentinel.
     let wakeLock = null;
@@ -34,6 +43,15 @@ export default function wakeLockApi() {
     };
     // Request a screen wake lock…
     requestWakeLock();
+
+    const handleVisibilityChange = () => {
+      if (wakeLock !== null && document.visibilityState === 'visible') {
+        requestWakeLock();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    document.addEventListener('fullscreenchange', handleVisibilityChange);
   } else {
     console.log('Wake Lock API not supported.');
   }
