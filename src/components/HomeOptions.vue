@@ -1,6 +1,9 @@
 <template>
   <div id="home-options">
-    <div class="row row-cols-2 justify-content-center m-3">
+
+    <img class="bg-image" src="../assets/bg.jpg" alt="Woman working out">
+
+    <!-- <div class="row row-cols-2 justify-content-center m-3">
       <div v-for="option in options" :key="option.id">
         <div class="card bg-dark m-2">
           <router-link :to="option.link">
@@ -13,7 +16,7 @@
           </router-link>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -40,30 +43,6 @@ export default {
           icon: 'fa-cog',
           link: '#',
         },
-        {
-          id: 4,
-          title: 'Metronome',
-          icon: 'fa-drum',
-          link: '#',
-        },
-        {
-          id: 5,
-          title: 'Settings',
-          icon: 'fa-cog',
-          link: '#',
-        },
-        {
-          id: 6,
-          title: 'Metronome',
-          icon: 'fa-drum',
-          link: '#',
-        },
-        {
-          id: 7,
-          title: 'Settings',
-          icon: 'fa-cog',
-          link: '#',
-        },
       ],
     };
   },
@@ -71,6 +50,33 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+@media (min-width: 576px) {
+  #home-options {
+    padding-top: 10px;
+  }
+
+  // .card-title {
+  // margin: 10px;
+  // }
+}
+
+.bg-image {
+  position: fixed;
+  left: 0;
+  // top: 100px;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: .5;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  .bg-image {
+    bottom: -50px;
+  }
+}
 
 .card-title {
   margin: 0;
@@ -89,16 +95,6 @@ export default {
     -webkit-box-shadow: inset 1px 1px 8px rgb(46, 46, 46);
     -moz-box-shadow:    inset 1px 1px 8px rgb(46, 46, 46);
     box-shadow:         inset 1px 1px 8px rgb(46, 46, 46);
-  }
-}
-
-@media (min-width: 576px) {
-  #home-options {
-    padding-top: 10px;
-  }
-
-  .card-title {
-  margin: 10px;
   }
 }
 </style>

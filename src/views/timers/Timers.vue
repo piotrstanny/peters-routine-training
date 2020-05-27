@@ -6,7 +6,10 @@
 </template>
 
 <script>
+
 export default {
+  components: {
+  },
   data() {
     return {
       timers: [
@@ -14,7 +17,33 @@ export default {
           id: '01',
           title: 'Stretching',
           description: 'Split stretching and handstand hold',
-          totalTime: '25:30',
+          prepare: 5,
+          exerciseRest: 20,
+          roundRest: 90,
+          noRounds: 5,
+          exercises: [
+            {
+              id: 1,
+              name: 'Front split left',
+              duration: 45,
+            },
+            {
+              id: 2,
+              name: 'Front split right',
+              duration: 45,
+            },
+            {
+              id: 3,
+              name: 'Side split',
+              duration: 60,
+            },
+            {
+              id: 4,
+              name: 'Hand stand',
+              duration: 45,
+            },
+          ],
+          totalTime: this.totalTime(),
         },
         {
           id: '02',
@@ -22,15 +51,13 @@ export default {
           description: 'Skipping with burpees and more',
           totalTime: '20:00',
         },
-        {
-          id: '03',
-          title: 'MetCon 2',
-          description: 'Plyo - pushups, squat jumps and more',
-          totalTime: '30:00',
-          path: 'timers/single-timer3',
-        },
       ],
     };
+  },
+  methods: {
+    totalTime() {
+      return '28 min 30 sec';
+    },
   },
 };
 </script>
