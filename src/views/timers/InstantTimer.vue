@@ -88,9 +88,10 @@
       <p>Stay strong and have a great day!</p>
     </div>
 
+<!-- TIMER SETUP FORM -->
     <form v-else class="col-sm-8">
       <div>
-        <h3 class="pt-4 text-center">Instant Timer</h3>
+        <h3 class="pt-0 text-center">Instant Timer</h3>
       </div>
       <div class="row justify-content-center">
         <div class="col-8 pb-1 pt-4 pl-4">
@@ -118,11 +119,17 @@
             class="col-form-label col-form-label-sm">
               Prepare/Countdown time (in seconds):
             </label>
-            <input
-            v-model="timer.countdown"
-            type="number"
-            class="form-control form-control-sm"
-            id="colFormLabelSm">
+            <div class="row justify-content-around align-items-center m-0">
+              <i class="fas fa-minus-square fa-3x pt-1"
+              @click="{(timer.countdown > 0) ? timer.countdown -= 1 : timer.countdown = 0}"></i>
+              <input
+              v-model="timer.countdown"
+              type="number"
+              class="form-control form-control-sm"
+              id="colFormLabelSm">
+              <i class="fas fa-plus-square fa-3x pt-1"
+              @click="{timer.countdown += 1}"></i>
+            </div>
           </div>
 
           <div class="form-group">
@@ -131,11 +138,18 @@
             class="col-form-label col-form-label-sm">
               Number of exercises per round:
             </label>
-            <input
-            v-model="timer.noOfExercises"
-            type="number"
-            class="form-control form-control-sm"
-            id="colFormLabelSm">
+            <div class="row justify-content-around align-items-center m-0">
+              <i class="fas fa-minus-square fa-3x pt-1"
+              @click="{(timer.noOfExercises > 0)
+              ? timer.noOfExercises -= 1 : timer.noOfExercises = 0}"></i>
+              <input
+              v-model="timer.noOfExercises"
+              type="number"
+              class="form-control form-control-sm"
+              id="colFormLabelSm">
+              <i class="fas fa-plus-square fa-3x pt-1"
+              @click="{timer.noOfExercises += 1}"></i>
+            </div>
           </div>
 
           <div class="form-group">
@@ -144,11 +158,18 @@
             class="col-form-label col-form-label-sm">
               Duration of exercise (in seconds):
             </label>
-            <input
-            v-model="timer.exerciseDuration"
-            type="number"
-            class="form-control form-control-sm"
-            id="colFormLabelSm">
+            <div class="row justify-content-around align-items-center m-0">
+              <i class="fas fa-minus-square fa-3x pt-1"
+              @click="{(timer.exerciseDuration > 0)
+              ? timer.exerciseDuration -= 1 : timer.exerciseDuration = 0}"></i>
+              <input
+              v-model="timer.exerciseDuration"
+              type="number"
+              class="form-control form-control-sm"
+              id="colFormLabelSm">
+              <i class="fas fa-plus-square fa-3x pt-1"
+              @click="{timer.exerciseDuration += 1}"></i>
+            </div>
           </div>
 
           <div class="form-group">
@@ -157,11 +178,18 @@
             class="col-form-label col-form-label-sm">
               Rest between exercises (in seconds):
             </label>
-            <input
-            v-model="timer.restBetweenEx"
-            type="number"
-            class="form-control form-control-sm"
-            id="colFormLabelSm">
+            <div class="row justify-content-around align-items-center m-0">
+              <i class="fas fa-minus-square fa-3x pt-1"
+              @click="{(timer.restBetweenEx > 0)
+              ? timer.restBetweenEx -= 1 : timer.restBetweenEx = 0}"></i>
+              <input
+              v-model="timer.restBetweenEx"
+              type="number"
+              class="form-control form-control-sm"
+              id="colFormLabelSm">
+              <i class="fas fa-plus-square fa-3x pt-1"
+              @click="{timer.restBetweenEx += 1}"></i>
+            </div>
           </div>
 
           <div class="form-group">
@@ -170,11 +198,18 @@
             class="col-form-label col-form-label-sm">
               Number of rounds:
             </label>
-            <input
-            v-model="timer.noOfRounds"
-            type="number"
-            class="form-control form-control-sm"
-            id="colFormLabelSm">
+            <div class="row justify-content-around align-items-center m-0">
+              <i class="fas fa-minus-square fa-3x pt-1"
+              @click="{(timer.noOfRounds > 1)
+              ? timer.noOfRounds -= 1 : timer.noOfRounds = 1}"></i>
+              <input
+              v-model="timer.noOfRounds"
+              type="number"
+              class="form-control form-control-sm"
+              id="colFormLabelSm">
+              <i class="fas fa-plus-square fa-3x pt-1"
+              @click="{timer.noOfRounds += 1}"></i>
+            </div>
           </div>
 
           <div class="form-group">
@@ -183,17 +218,24 @@
             class="col-form-label col-form-label-sm">
               Rest between rounds (in seconds):
             </label>
-            <input
-            v-model="timer.restBetweenRounds"
-            type="number"
-            class="form-control form-control-sm"
-            id="colFormLabelSm">
+            <div class="row justify-content-around align-items-center m-0">
+              <i class="fas fa-minus-square fa-3x pt-1"
+              @click="{(timer.restBetweenRounds > 0)
+              ? timer.restBetweenRounds -= 1 : timer.restBetweenRounds = 0}"></i>
+              <input
+              v-model="timer.restBetweenRounds"
+              type="number"
+              class="form-control form-control-sm"
+              id="colFormLabelSm">
+              <i class="fas fa-plus-square fa-3x pt-1" @click="{timer.restBetweenRounds += 1}"></i>
+            </div>
           </div>
 
         </div>
       </div>
-
     </form>
+<!-- end TIMER SETUP FORM -->
+
   </div>
 </div>
 </template>
@@ -462,7 +504,6 @@ export default {
           this.remaining += (this.intervals[this.intervalCounter - 1] - this.secondsLeft);
           this.elapsed = (this.elapsed * 1)
           - (this.intervals[this.intervalCounter - 1] - this.secondsLeft);
-          // this.intervalCounter -= 1;
           this.secondsLeft = this.intervals[this.intervalCounter - 1];
           document.getElementById('current-interval').innerHTML = this.secondsLeft;
           this.startTimer(this.secondsLeft);
@@ -475,8 +516,15 @@ export default {
 
 <style lang="scss" scoped>
   form {
-    text-align: left;
     display: inline-block;
+  }
+
+  .form-control {
+    width: 50%;
+  }
+
+  i:hover {
+    cursor: pointer;
   }
 
   .text-center {
