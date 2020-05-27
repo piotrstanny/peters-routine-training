@@ -255,6 +255,8 @@
 </template>
 
 <script>
+import wakeLockApi from '../../wakeLockApi';
+
 export default {
   data() {
     return {
@@ -352,7 +354,7 @@ export default {
       this.remaining = this.totalInSeconds();
       this.secondsLeft = this.intervals[this.intervalCounter - 1];
       this.activeInterval();
-      // document.getElementById('current-interval').innerHTML = this.secondsLeft;
+      wakeLockApi();
     },
 
     activeInterval() {
