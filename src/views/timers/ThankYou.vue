@@ -27,12 +27,12 @@ export default {
 
 @keyframes slide-down {
   from {
-    padding-top: 30vh;
+    padding-top: 25vh;
     opacity: 0;
   }
 
   to {
-    padding-top: 40vh;
+    padding-top: 35vh;
     opacity: 1;
   }
 }

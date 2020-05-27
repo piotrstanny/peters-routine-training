@@ -393,7 +393,7 @@ export default {
       const audioCtx = this.audioCheck();
       if (audioCtx !== undefined) {
         const oscillator = audioCtx.createOscillator();
-        oscillator.type = 'triangle';
+        oscillator.type = 'sine';
         oscillator.connect(audioCtx.destination);
         oscillator.start();
         setTimeout(() => {
@@ -406,12 +406,25 @@ export default {
       const audioCtx = this.audioCheck();
       if (audioCtx !== undefined) {
         const oscillator = audioCtx.createOscillator();
-        oscillator.type = 'sine';
+        oscillator.type = 'triangle';
         oscillator.connect(audioCtx.destination);
         oscillator.start();
         setTimeout(() => {
           oscillator.stop();
         }, milisec);
+      }
+    },
+
+    triangleBeep() {
+      const audioCtx = this.audioCheck();
+      if (audioCtx !== undefined) {
+        const oscillator = audioCtx.createOscillator();
+        oscillator.type = 'triangle';
+        oscillator.connect(audioCtx.destination);
+        oscillator.start();
+        setTimeout(() => {
+          oscillator.stop();
+        }, 200);
       }
     },
     // end AUDIO METHODS
@@ -421,6 +434,9 @@ export default {
       this.secondsLeft = currentInterval;
       this.activeInterval();
       this.interval = setInterval(() => {
+        if (this.secondsLeft < 5 && this.secondsLeft > 1) {
+          this.triangleBeep();
+        }
         if (this.secondsLeft > 1) {
           this.secondsLeft -= 1;
           document.getElementById('current-interval').innerHTML = this.secondsLeft;
@@ -437,18 +453,19 @@ export default {
           this.startTimer(this.intervals[this.intervalCounter - 1]);
         } else {
           clearInterval(this.interval);
-          this.longBeep(400);
+          this.longBeep(300);
           setTimeout(() => {
-            this.longBeep(400);
+            this.longBeep(300);
             setTimeout(() => {
-              this.longBeep(900);
-            }, 500);
-          }, 500);
+              this.longBeep(1000);
+            }, 310);
+          }, 310);
           this.secondsLeft -= 1;
           document.getElementById('current-interval').innerHTML = this.secondsLeft;
           this.remaining -= 1;
           this.elapsed += 1;
           this.isBtnDisabled = false;
+          this.paused = true;
           this.finalIntText();
         }
       }, 1000);
@@ -469,6 +486,7 @@ export default {
     },
 
     restartTimer() {
+      this.paused = true;
       this.remaining = this.totalInSeconds();
       this.elapsed = 0;
       this.intervalCounter = 1;
