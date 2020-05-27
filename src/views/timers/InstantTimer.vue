@@ -46,6 +46,7 @@
         </div>
 
         <div class="row justify-content-between m-0 pt-3">
+
           <div class="col-4 p-1">
             <button v-if="paused"
             type="button"
@@ -75,10 +76,23 @@
             tag="button"
             type="button"
             class="btn btn-block btn-info btn-lg text-black"
-
             :disabled="isBtnDisabled">
             <strong>FINISH</strong></router-link>
           </div>
+        </div>
+
+        <div class="row justify-content-between m-0 pt-5">
+
+          <div class="col-4 m-0 p-1">
+            <button
+            type="button"
+            class="btn btn-block btn-secondary"
+            @click="editTimer()"
+            :disabled="isBtnDisabled">
+            <i class="fas fa-backspace text-black"></i>
+            <div class="text-black"><strong>Edit Timer</strong></div></button>
+          </div>
+
         </div>
       </div>
     </div>
@@ -338,6 +352,7 @@ export default {
       this.remaining = this.totalInSeconds();
       this.secondsLeft = this.intervals[this.intervalCounter - 1];
       this.activeInterval();
+      // document.getElementById('current-interval').innerHTML = this.secondsLeft;
     },
 
     activeInterval() {
@@ -466,6 +481,16 @@ export default {
       this.restartTimer();
       this.timerReady = false;
       this.timerFinished = true;
+    },
+
+    editTimer() {
+      this.timerReady = false;
+      this.elapsed = 0;
+      this.remaining = 0;
+      this.secondsLeft = 0;
+      this.intervalCounter = 1;
+      this.intervals = [];
+      this.interval = '';
     },
 
     nextInterval() {
