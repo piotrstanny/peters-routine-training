@@ -17,7 +17,7 @@
             class="col-3 align-self-center"
             style="cursor: pointer"
             @click="previousInterval()">
-              <i class="fas fa-step-forward fa-lg fa-flip-horizontal"></i>
+              <fa-icon icon="step-backward" size="lg"></fa-icon>
             </div>
             <div class="col-4">
               <h1
@@ -30,7 +30,7 @@
             class="col-3 align-self-center"
             style="cursor: pointer"
             @click="nextInterval()">
-              <i class="fas fa-step-forward fa-lg"></i>
+              <fa-icon icon="step-forward"></fa-icon>
             </div>
           </div>
 
@@ -52,13 +52,13 @@
             type="button"
             class="btn btn-block btn-warning btn-lg"
             @click="playButton()">
-            <i class="fas fa-play text-black"></i></button>
+            <fa-icon icon="play" class="text-black"></fa-icon></button>
 
             <button v-else
             type="button"
             class="btn btn-block btn-warning btn-lg"
             @click="pauseButton()">
-            <i class="fas fa-pause text-black"></i></button>
+            <fa-icon icon="pause" class="text-black"></fa-icon></button>
           </div>
 
           <div class="col-3 p-1 pl-3 pr-0 ml-4">
@@ -67,7 +67,7 @@
             class="btn btn-block btn-danger btn-lg"
             @click="restartTimer()"
             :disabled="isBtnDisabled">
-            <i class="fas fa-redo-alt text-black"></i></button>
+            <fa-icon icon="redo-alt" class="text-black"></fa-icon></button>
           </div>
 
           <div class="col-4 p-1 pl-0">
@@ -89,7 +89,7 @@
             class="btn btn-block btn-secondary"
             @click="editTimer()"
             :disabled="isBtnDisabled">
-            <i class="fas fa-backspace text-black"></i>
+            <fa-icon icon="backspace" class="text-black"></fa-icon>
             <div class="text-black"><strong>Edit Timer</strong></div></button>
           </div>
 
@@ -134,15 +134,16 @@
               Prepare/Countdown time (in seconds):
             </label>
             <div class="row justify-content-around align-items-center m-0">
-              <i class="fas fa-minus-square fa-3x pt-1"
-              @click="{(timer.countdown > 0) ? timer.countdown -= 1 : timer.countdown = 0}"></i>
+              <fa-icon icon="minus-square" size="3x" class="pt-1"
+              @click="{(timer.countdown > 0)
+              ? timer.countdown -= 1 : timer.countdown = 0}"></fa-icon>
               <input
               v-model="timer.countdown"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
-              <i class="fas fa-plus-square fa-3x pt-1"
-              @click="{timer.countdown += 1}"></i>
+              <fa-icon icon="plus-square" size="3x" class="pt-1"
+              @click="{timer.countdown += 1}"></fa-icon>
             </div>
           </div>
 
@@ -153,16 +154,16 @@
               Number of exercises per round:
             </label>
             <div class="row justify-content-around align-items-center m-0">
-              <i class="fas fa-minus-square fa-3x pt-1"
+              <fa-icon icon="minus-square" size="3x" class="pt-1"
               @click="{(timer.noOfExercises > 0)
-              ? timer.noOfExercises -= 1 : timer.noOfExercises = 0}"></i>
+              ? timer.noOfExercises -= 1 : timer.noOfExercises = 0}"></fa-icon>
               <input
               v-model="timer.noOfExercises"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
-              <i class="fas fa-plus-square fa-3x pt-1"
-              @click="{timer.noOfExercises += 1}"></i>
+              <fa-icon icon="plus-square" size="3x" class="pt-1"
+              @click="{timer.noOfExercises += 1}"></fa-icon>
             </div>
           </div>
 
@@ -173,16 +174,16 @@
               Duration of exercise (in seconds):
             </label>
             <div class="row justify-content-around align-items-center m-0">
-              <i class="fas fa-minus-square fa-3x pt-1"
+              <fa-icon icon="minus-square" size="3x" class="pt-1"
               @click="{(timer.exerciseDuration > 0)
-              ? timer.exerciseDuration -= 1 : timer.exerciseDuration = 0}"></i>
+              ? timer.exerciseDuration -= 1 : timer.exerciseDuration = 0}"></fa-icon>
               <input
               v-model="timer.exerciseDuration"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
-              <i class="fas fa-plus-square fa-3x pt-1"
-              @click="{timer.exerciseDuration += 1}"></i>
+              <fa-icon icon="plus-square" size="3x" class="pt-1"
+              @click="{timer.exerciseDuration += 1}"></fa-icon>
             </div>
           </div>
 
@@ -193,16 +194,16 @@
               Rest between exercises (in seconds):
             </label>
             <div class="row justify-content-around align-items-center m-0">
-              <i class="fas fa-minus-square fa-3x pt-1"
+              <fa-icon icon="minus-square" size="3x" class="pt-1"
               @click="{(timer.restBetweenEx > 0)
-              ? timer.restBetweenEx -= 1 : timer.restBetweenEx = 0}"></i>
+              ? timer.restBetweenEx -= 1 : timer.restBetweenEx = 0}"></fa-icon>
               <input
               v-model="timer.restBetweenEx"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
-              <i class="fas fa-plus-square fa-3x pt-1"
-              @click="{timer.restBetweenEx += 1}"></i>
+              <fa-icon icon="plus-square" size="3x" class="pt-1"
+              @click="{timer.restBetweenEx += 1}"></fa-icon>
             </div>
           </div>
 
@@ -213,16 +214,16 @@
               Number of rounds:
             </label>
             <div class="row justify-content-around align-items-center m-0">
-              <i class="fas fa-minus-square fa-3x pt-1"
+              <fa-icon icon="minus-square" size="3x" class="pt-1"
               @click="{(timer.noOfRounds > 1)
-              ? timer.noOfRounds -= 1 : timer.noOfRounds = 1}"></i>
+              ? timer.noOfRounds -= 1 : timer.noOfRounds = 1}"></fa-icon>
               <input
               v-model="timer.noOfRounds"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
-              <i class="fas fa-plus-square fa-3x pt-1"
-              @click="{timer.noOfRounds += 1}"></i>
+              <fa-icon icon="plus-square" size="3x" class="pt-1"
+              @click="{timer.noOfRounds += 1}"></fa-icon>
             </div>
           </div>
 
@@ -233,15 +234,17 @@
               Rest between rounds (in seconds):
             </label>
             <div class="row justify-content-around align-items-center m-0">
-              <i class="fas fa-minus-square fa-3x pt-1"
+              <fa-icon icon="minus-square" size="3x" class="pt-1"
               @click="{(timer.restBetweenRounds > 0)
-              ? timer.restBetweenRounds -= 1 : timer.restBetweenRounds = 0}"></i>
+              ? timer.restBetweenRounds -= 1 : timer.restBetweenRounds = 0}"></fa-icon>
               <input
               v-model="timer.restBetweenRounds"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
-              <i class="fas fa-plus-square fa-3x pt-1" @click="{timer.restBetweenRounds += 1}"></i>
+              <fa-icon
+              icon="plus-square" size="3x" class="pt-1"
+              @click="{timer.restBetweenRounds += 1}"></fa-icon>
             </div>
           </div>
 

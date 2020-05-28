@@ -6,7 +6,7 @@
       :key="item.id"
       :to="item.path"
       class="nav-item nav-link">
-        <i :class="'fas ' + item.icon + ' fa-lg'"></i>
+        <fa-icon :icon="item.icon" size="lg"></fa-icon>
         <div>{{ item.title }}</div>
       </router-link>
     </nav>
@@ -21,19 +21,19 @@ export default {
         {
           id: '1',
           title: 'Home',
-          icon: 'fa-home-lg-alt',
+          icon: 'home',
           path: '/',
         },
         {
           id: '2',
           title: 'Timers',
-          icon: 'fa-stopwatch',
+          icon: 'stopwatch',
           path: '/timers',
         },
         {
           id: '3',
           title: 'My Stats',
-          icon: 'fa-user-alt',
+          icon: 'user-alt',
           path: '/my-stats',
         },
       ],
