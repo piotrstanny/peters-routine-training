@@ -11,6 +11,7 @@ import {
   faHome,
   faStopwatch,
   faUserAlt,
+  faPause,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import App from './App.vue';
@@ -28,6 +29,7 @@ library.add(
   faHome,
   faStopwatch,
   faUserAlt,
+  faPause,
 );
 
 Vue.component('fa-icon', FontAwesomeIcon);
