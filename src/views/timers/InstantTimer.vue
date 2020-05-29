@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="timer-container pt-5">
+  <div class="timer-container pt-4">
 
     <div v-if="timerReady" class="row justify-content-center m-0">
       <div class="col-sm-8">

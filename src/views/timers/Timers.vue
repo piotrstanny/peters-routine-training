@@ -15,8 +15,8 @@ export default {
       timers: [
         {
           id: '01',
-          title: 'Stretching',
-          description: 'Split stretching and handstand hold',
+          title: 'Title',
+          description: 'Short description of the workout.',
           prepare: 5,
           exerciseRest: 20,
           roundRest: 90,
@@ -44,12 +44,6 @@ export default {
             },
           ],
           totalTime: this.totalTime(),
-        },
-        {
-          id: '02',
-          title: 'MetCon 1',
-          description: 'Skipping with burpees and more',
-          totalTime: '20:00',
         },
       ],
     };

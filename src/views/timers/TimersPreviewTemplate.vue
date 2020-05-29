@@ -1,6 +1,6 @@
 <template>
-  <div class="card bg-dark mb-2">
-    <div class="card-body p-3">
+  <div class="card bg-dark mb-3">
+    <div class="card-body p-4">
       <div class="justify-content-between d-flex">
         <h5 class="card-title">
           <slot name="title">Instant Timer</slot>
