@@ -539,19 +539,20 @@ export default {
         clearInterval(this.interval);
 
         if ((this.intervals[this.intervalCounter - 1] - this.secondsLeft) < 3) {
-          this.remaining += this.intervals[this.intervalCounter - 2]
-          + (this.intervals[this.intervalCounter - 1] - this.secondsLeft);
-          this.elapsed = (this.elapsed * 1)
-          - (this.intervals[this.intervalCounter - 2]
-          + (this.intervals[this.intervalCounter - 1] - this.secondsLeft));
+          this.remaining = this.remaining * 1 + this.intervals[this.intervalCounter - 2] * 1
+          + (this.intervals[this.intervalCounter - 1] * 1 - this.secondsLeft * 1);
+          this.elapsed = this.elapsed * 1
+          - (this.intervals[this.intervalCounter - 2] * 1
+          + (this.intervals[this.intervalCounter - 1] * 1 - this.secondsLeft * 1));
           this.intervalCounter -= 1;
           this.secondsLeft = this.intervals[this.intervalCounter - 1];
           document.getElementById('current-interval').innerHTML = this.secondsLeft;
           this.startTimer(this.secondsLeft);
         } else {
-          this.remaining += (this.intervals[this.intervalCounter - 1] - this.secondsLeft);
+          this.remaining = (this.remaining * 1)
+          + (this.intervals[this.intervalCounter - 1] * 1 - (this.secondsLeft * 1));
           this.elapsed = (this.elapsed * 1)
-          - (this.intervals[this.intervalCounter - 1] - this.secondsLeft);
+          - (this.intervals[this.intervalCounter - 1] - (this.secondsLeft * 1));
           this.secondsLeft = this.intervals[this.intervalCounter - 1];
           document.getElementById('current-interval').innerHTML = this.secondsLeft;
           this.startTimer(this.secondsLeft);
