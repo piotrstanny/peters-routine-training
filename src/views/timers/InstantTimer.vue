@@ -30,7 +30,7 @@
             class="col-3 align-self-center"
             style="cursor: pointer"
             @click="nextInterval()">
-              <fa-icon icon="step-forward"></fa-icon>
+              <fa-icon icon="step-forward" size="lg"></fa-icon>
             </div>
           </div>
 
