@@ -1,16 +1,16 @@
 <template>
   <div id="timers-list">
-    <div class="row row-cols-1 m-3">
+    <div class="row row-cols-1 m-3 pt-4">
       <router-link :to="{name: 'InstantTimer'}">
         <TimersPreviewTemplate>
         </TimersPreviewTemplate>
       </router-link>
 
-      <h4 style="text-align: center; margin-top: 20px">List of your timers</h4>
-      <router-link
+      <h4 style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
+        List of your timers</h4>
+      <div
       v-for="timer in timers"
       :key="timer.id"
-      :to="'/timers/' + timer.title"
       :timers="timers"
       >
         <TimersPreviewTemplate>
@@ -18,7 +18,7 @@
           <span slot="description">{{ timer.description }}</span>
           <span slot="time">{{ timer.totalTime }}</span>
         </TimersPreviewTemplate>
-      </router-link>
+      </div>
     </div>
   </div>
 </template>

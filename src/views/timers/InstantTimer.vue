@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div class="timer-container pt-5">
+  <div class="timer-container pt-4">
 
     <div v-if="timerReady" class="row justify-content-center m-0">
       <div class="col-sm-8">
@@ -30,7 +30,7 @@
             class="col-3 align-self-center"
             style="cursor: pointer"
             @click="nextInterval()">
-              <fa-icon icon="step-forward"></fa-icon>
+              <fa-icon icon="step-forward" size="lg"></fa-icon>
             </div>
           </div>
 
@@ -539,19 +539,20 @@ export default {
         clearInterval(this.interval);
 
         if ((this.intervals[this.intervalCounter - 1] - this.secondsLeft) < 3) {
-          this.remaining += this.intervals[this.intervalCounter - 2]
-          + (this.intervals[this.intervalCounter - 1] - this.secondsLeft);
-          this.elapsed = (this.elapsed * 1)
-          - (this.intervals[this.intervalCounter - 2]
-          + (this.intervals[this.intervalCounter - 1] - this.secondsLeft));
+          this.remaining = this.remaining * 1 + this.intervals[this.intervalCounter - 2] * 1
+          + (this.intervals[this.intervalCounter - 1] * 1 - this.secondsLeft * 1);
+          this.elapsed = this.elapsed * 1
+          - (this.intervals[this.intervalCounter - 2] * 1
+          + (this.intervals[this.intervalCounter - 1] * 1 - this.secondsLeft * 1));
           this.intervalCounter -= 1;
           this.secondsLeft = this.intervals[this.intervalCounter - 1];
           document.getElementById('current-interval').innerHTML = this.secondsLeft;
           this.startTimer(this.secondsLeft);
         } else {
-          this.remaining += (this.intervals[this.intervalCounter - 1] - this.secondsLeft);
+          this.remaining = (this.remaining * 1)
+          + (this.intervals[this.intervalCounter - 1] * 1 - (this.secondsLeft * 1));
           this.elapsed = (this.elapsed * 1)
-          - (this.intervals[this.intervalCounter - 1] - this.secondsLeft);
+          - (this.intervals[this.intervalCounter - 1] - (this.secondsLeft * 1));
           this.secondsLeft = this.intervals[this.intervalCounter - 1];
           document.getElementById('current-interval').innerHTML = this.secondsLeft;
           this.startTimer(this.secondsLeft);
