@@ -138,7 +138,7 @@
               @click="{(timer.countdown > 0)
               ? timer.countdown -= 1 : timer.countdown = 0}"></fa-icon>
               <input
-              v-model="timer.countdown"
+              v-model.number="timer.countdown"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
@@ -158,7 +158,7 @@
               @click="{(timer.noOfExercises > 0)
               ? timer.noOfExercises -= 1 : timer.noOfExercises = 0}"></fa-icon>
               <input
-              v-model="timer.noOfExercises"
+              v-model.number="timer.noOfExercises"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
@@ -178,7 +178,7 @@
               @click="{(timer.exerciseDuration > 0)
               ? timer.exerciseDuration -= 1 : timer.exerciseDuration = 0}"></fa-icon>
               <input
-              v-model="timer.exerciseDuration"
+              v-model.number="timer.exerciseDuration"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
@@ -198,7 +198,7 @@
               @click="{(timer.restBetweenEx > 0)
               ? timer.restBetweenEx -= 1 : timer.restBetweenEx = 0}"></fa-icon>
               <input
-              v-model="timer.restBetweenEx"
+              v-model.number="timer.restBetweenEx"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
@@ -218,7 +218,7 @@
               @click="{(timer.noOfRounds > 1)
               ? timer.noOfRounds -= 1 : timer.noOfRounds = 1}"></fa-icon>
               <input
-              v-model="timer.noOfRounds"
+              v-model.number="timer.noOfRounds"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
@@ -238,7 +238,7 @@
               @click="{(timer.restBetweenRounds > 0)
               ? timer.restBetweenRounds -= 1 : timer.restBetweenRounds = 0}"></fa-icon>
               <input
-              v-model="timer.restBetweenRounds"
+              v-model.number="timer.restBetweenRounds"
               type="number"
               class="form-control form-control-sm"
               id="colFormLabelSm">
