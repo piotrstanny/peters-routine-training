@@ -32,9 +32,9 @@ export default {
         },
         {
           id: '3',
-          title: 'My Stats',
+          title: 'Events',
           icon: 'user-alt',
-          path: '/my-stats',
+          path: '/events-list',
         },
       ],
     };

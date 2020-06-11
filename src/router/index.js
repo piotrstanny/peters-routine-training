@@ -41,9 +41,9 @@ const routes = [
     ],
   },
   {
-    path: '/my-stats',
-    name: 'MyStats',
-    component: () => import(/* webpackChunkName: "my-stats" */ '../views/MyStats.vue'),
+    path: '/events-list',
+    name: 'EventsList',
+    component: () => import(/* webpackChunkName: "events" */ '../views/EventsList.vue'),
   },
   { path: '*', redirect: '/' },
 ];
