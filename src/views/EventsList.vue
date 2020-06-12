@@ -1,11 +1,14 @@
 <template>
   <div class="container mt-5">
-    <h3>Events Listing</h3>
+    <h2>Events Listing</h2>
     <ul>
-      <li v-for="(item, index) in 5" :key="index" style="text-align: left;">
-        <p>Some events {{ index }}</p>
-      </li>
+      <li><router-link :to="{ name: 'EventShow' }">Show Event #1</router-link></li>
+      <li><router-link :to="{ name: 'EventShow' }">Show Event #2</router-link></li>
+      <li><router-link :to="{ name: 'EventShow' }">Show Event #3</router-link></li>
     </ul>
+    <h4>
+      <router-link :to="{ name: 'EventCreate' }">Create New Event</router-link>
+    </h4>
   </div>
 </template>
 

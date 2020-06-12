@@ -45,6 +45,16 @@ const routes = [
     name: 'EventsList',
     component: () => import(/* webpackChunkName: "events" */ '../views/EventsList.vue'),
   },
+  {
+    path: '/event',
+    name: 'EventShow',
+    component: () => import(/* webpackChunkName: "events" */ '../views/EventShow.vue'),
+  },
+  {
+    path: '/event/create',
+    name: 'EventCreate',
+    component: () => import(/* webpackChunkName: "events" */ '../views/EventCreate.vue'),
+  },
   { path: '*', redirect: '/' },
 ];
 
