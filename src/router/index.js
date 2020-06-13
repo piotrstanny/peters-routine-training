@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
+import User from '../views/User.vue';
 
 Vue.use(VueRouter);
 
@@ -9,6 +10,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/user/:username',
+    name: 'User',
+    component: User,
   },
   {
     path: '/timers',
@@ -43,17 +49,17 @@ const routes = [
   {
     path: '/events-list',
     name: 'EventsList',
-    component: () => import(/* webpackChunkName: "events" */ '../views/EventsList.vue'),
+    component: () => import(/* webpackChunkName: "events" */ '../views/events/EventsList.vue'),
   },
   {
     path: '/event',
     name: 'EventShow',
-    component: () => import(/* webpackChunkName: "events" */ '../views/EventShow.vue'),
+    component: () => import(/* webpackChunkName: "events" */ '../views/events/EventShow.vue'),
   },
   {
-    path: '/event/create',
+    path: '/create-event',
     name: 'EventCreate',
-    component: () => import(/* webpackChunkName: "events" */ '../views/EventCreate.vue'),
+    component: () => import(/* webpackChunkName: "events" */ '../views/events/EventCreate.vue'),
   },
   { path: '*', redirect: '/' },
 ];
