@@ -3,3 +3,9 @@
     <h1>Event details</h1>
   </div>
 </template>
+
+<script>
+export default {
+  props: ['id'],
+};
+</script>
