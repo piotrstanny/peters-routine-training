@@ -33,7 +33,7 @@ export default {
         {
           id: '3',
           title: 'Events',
-          icon: 'user-alt',
+          icon: 'users',
           path: '/events-list',
         },
       ],
