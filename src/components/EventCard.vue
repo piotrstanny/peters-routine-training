@@ -1,18 +1,21 @@
 <template>
-  <div class="card bg-dark mb-3">
-    <div class="card-body p-4">
-      <div class="justify-content-between d-flex">
-        <h5 class="card-title">
-          <slot name="title">{{ event.title }}</slot>
-        </h5>
-        <small>{{ event.date }}</small>
+  <router-link :to="{ name: 'EventShow', params: {id: '11'} }">
+    <div class="card bg-dark mb-3">
+      <div class="card-body p-3">
+        <div class="justify-content-between d-flex">
+          <small>Time: {{ event.time }}</small>
+          <small>{{ event.date }}</small>
+        </div>
+        <section class="card-text pt-3">
+          <h5 class="card-title">{{ event.title }}</h5>
+          <div>
+            <fa-icon icon="user-alt" class="mr-1"></fa-icon>
+            {{ event.atendees.length }} people attending
+          </div>
+        </section>
       </div>
-      <section class="card-text pt-3">
-        <div>Time: {{ event.time }}</div>
-        <div>How many people attending: {{ event.atendees.length }}</div>
-      </section>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -36,6 +39,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+a {
+  text-decoration: none;
+}
+
 .card-body {
   color: #f3f3f3;
 
