@@ -11,6 +11,9 @@
       <li><router-link :to="{ name: 'EventShow', params: {id: '13'} }">
         Show Event #3
       </router-link></li>
+      <li>
+        <EventCard/>
+      </li>
     </ul>
     <h4>
       <router-link :to="{ name: 'EventCreate' }">Create New Event</router-link><br><br>
@@ -22,9 +25,12 @@
 </template>
 
 <script>
+import EventCard from '@/components/EventCard.vue';
 
 export default {
-
+  components: {
+    EventCard,
+  },
 };
 </script>
 
