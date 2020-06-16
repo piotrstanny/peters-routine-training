@@ -13,6 +13,8 @@ import {
   faUserAlt,
   faUsers,
   faPause,
+  faClock,
+  faCalendarDay,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
@@ -29,5 +31,7 @@ library.add(
   faUserAlt,
   faUsers,
   faPause,
+  faClock,
+  faCalendarDay,
 );
 Vue.component('fa-icon', FontAwesomeIcon);
