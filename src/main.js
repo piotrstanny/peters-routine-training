@@ -15,6 +15,7 @@ import {
   faPause,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import NavBar from '@/components/NavBar.vue';
 import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
@@ -36,6 +37,7 @@ library.add(
 );
 
 Vue.component('fa-icon', FontAwesomeIcon);
+Vue.component('NavBar', NavBar);
 
 Vue.config.productionTip = false;
 
