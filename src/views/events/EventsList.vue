@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-5">
     <h1>Events Listing</h1>
-    <EventCard/>
+    <EventCard v-for="event in events" :key="event.id" :event="event"/>
     <h4>
       <router-link
       :to="{ name: 'EventCreate' }">Create New Event</router-link>
@@ -22,11 +22,16 @@ export default {
   components: {
     EventCard,
   },
+  data() {
+    return {
+      events: [],
+    };
+  },
   created() {
     axios
       .get('http://localhost:3000/events')
       .then((response) => {
-        console.log(response);
+        this.events = response.data;
       })
       .catch((error) => {
         console.log(`There was an error: ${error}`);

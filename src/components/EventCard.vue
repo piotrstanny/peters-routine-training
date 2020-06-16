@@ -10,7 +10,7 @@
           <h5 class="card-title">{{ event.title }}</h5>
           <div>
             <fa-icon icon="user-alt" class="mr-1"></fa-icon>
-            {{ event.atendees.length }} people attending
+            {{ event.attendees.length }} people attending
           </div>
         </section>
       </div>
@@ -20,21 +20,7 @@
 
 <script>
 export default {
-  data() {
-    return {
-      event: {
-        id: 111,
-        title: 'Bartlett Cross Training',
-        date: 'Sat, 19th June 2020',
-        time: '12:30 pm',
-        atendees: [
-          { id: 3, name: 'Lucia' },
-          { id: 1, name: 'Piotr' },
-          { id: 2, name: 'Doug' },
-        ],
-      },
-    };
-  },
+  props: ['event'],
 };
 </script>
 
