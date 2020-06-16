@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'EventShow', params: {id: '11'} }">
+  <router-link :to="{ name: 'EventShow', params: {id: event.id} }">
     <div class="card bg-dark mb-3">
       <div class="card-body p-3">
         <div class="justify-content-between d-flex">

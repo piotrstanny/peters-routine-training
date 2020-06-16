@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-5">
-    <h1>Event details</h1>
+    <h1>Event nr {{ id }} details</h1>
   </div>
 </template>
 
