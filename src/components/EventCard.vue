@@ -10,7 +10,7 @@
           <h5 class="card-title">{{ event.title }}</h5>
           <div>
             <fa-icon icon="user-alt" class="mr-1"></fa-icon>
-            {{ event.attendees.length }} people attending
+            {{ event.attendees.length ? event.attendees.length : 'No' }} people attending
           </div>
         </section>
       </div>

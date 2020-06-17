@@ -28,7 +28,7 @@
       "location": "Catlandia",
       "date": "Fri, 23th July 2020",
       "time": "1:00 pm",
-      "attendees": ["Doug", "Meg", "Lucia", "Deb", "Piotr", "Andrew"]
+      "attendees": []
     },
     {
       "id": 4582797,
@@ -43,7 +43,7 @@
       "location": "Puptown ",
       "date": "Sat, 15th July 2020",
       "time": "12:30 pm",
-      "attendees": ["Doug", "Meg", "Lucia", "Deb", "Piotr", "Andrew"]
+      "attendees": []
     }
   ]
 }
