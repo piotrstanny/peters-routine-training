@@ -129,6 +129,21 @@
       "date": "2020-06-02T18:06:00.000Z",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 1874,
+      "user": {
+        "id": "abc123",
+        "name": "Piotr"
+      },
+      "category": "running",
+      "organizer": "Piotr",
+      "title": "Run London",
+      "description": "just run",
+      "location": "London",
+      "date": "2020-09-10T18:15:00.000Z",
+      "time": "3:00",
+      "attendees": []
     }
   ]
 }

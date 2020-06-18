@@ -7,14 +7,11 @@
     <p>Date: {{ event.date }}</p>
     <p>Time: {{ event.time }}</p>
     <h3>Attendees:</h3>
-    <div v-if="event.attendees.length > 0">
       <ul>
         <li v-for="attendee in event.attendees" :key="attendee">
           {{ attendee }}
         </li>
       </ul>
-    </div>
-    <div v-else>Be the first to join and invite friends!</div>
   </div>
 </template>
 
