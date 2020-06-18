@@ -1,22 +1,86 @@
 <template>
   <div class="container mt-5">
     <h1>Create New Event</h1>
-    <p>Hello {{ userName }}!</p>
-    <h4>Event's details:</h4>
-    <p>Creator: {{ userName }}</p>
-    <p>Creator's ID: {{ userId }}</p>
+    <form>
+      <label>Select a category</label>
+      <select v-model="event.category">
+        <option v-for="cat in categories" :key="cat">{{ cat }}</option>
+      </select>
+      <h3>Name and describe your event</h3>
+      <div class="field">
+        <label>Organizer: </label>
+        <span> {{ event.user.name }}</span>
+      </div>
+      <div class="field">
+        <label>Title</label>
+        <input v-model="event.title" type="text" placeholder="Add an event title"/>
+      </div>
+      <div class="field">
+        <label>Description</label>
+        <input v-model="event.description" type="text" placeholder="Add a description"/>
+      </div>
+      <h3>Where is your event?</h3>
+      <div class="field">
+        <label>Location</label>
+        <input v-model="event.location" type="text" placeholder="Add a location"/>
+      </div>
+      <h3>When is your event?</h3>
+      <div class="field">
+        <label>Date</label>
+        <DatePicker v-model="event.date" placeholder="Select a date"></DatePicker>
+      </div>
+      <div class="field">
+        <label>Select a time</label>
+        <select v-model="event.time">
+          <option v-for="time in times" :key="time">{{ time }}</option>
+        </select>
+      </div>
+      <input type="submit" class="button -fill-gradient" value="Submit"/>
+    </form>
   </div>
 </template>
 
 <script>
+import { DatePicker } from 'vuejs-datepicker';
+
 export default {
-  computed: {
-    userName() {
-      return this.$store.state.user.name;
-    },
-    userId() {
-      return this.$store.state.user.id;
+  components: {
+    DatePicker,
+  },
+  data() {
+    const times = [];
+    for (let i = 1; i <= 24; i += 1) {
+      times.push(`${i}:00`);
+    }
+    return {
+      times,
+      categories: this.$store.state.categories,
+      event: this.createEventObject(),
+    };
+  },
+  methods: {
+    createEventObject() {
+      const { user } = this.$store.state;
+      const id = Math.floor(Math.random() * 10000);
+      return {
+        id,
+        user,
+        category: '',
+        organizer: user,
+        title: '',
+        description: '',
+        location: '',
+        date: '',
+        time: '',
+        attendees: [],
+      };
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.field {
+  margin-bottom: 24px;
+}
+</style>

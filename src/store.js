@@ -9,6 +9,12 @@ export default new Vuex.Store({
       id: 'abc123',
       name: 'Piotr',
     },
+    categories: [
+      'socializing',
+      'crossfit',
+      'bike ride',
+      'running',
+    ],
   },
   mutations: {
 
