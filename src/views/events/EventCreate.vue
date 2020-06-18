@@ -27,7 +27,7 @@
       <h3>When is your event?</h3>
       <div class="field">
         <label>Date</label>
-        <DatePicker v-model="event.date" placeholder="Select a date"></DatePicker>
+        <Datepicker v-model="event.date" placeholder="Select a date"></Datepicker>
       </div>
       <div class="field">
         <label>Select a time</label>
@@ -41,11 +41,11 @@
 </template>
 
 <script>
-import { DatePicker } from 'vuejs-datepicker';
+import Datepicker from 'vuejs-datepicker';
 
 export default {
   components: {
-    DatePicker,
+    Datepicker,
   },
   data() {
     const times = [];
@@ -82,5 +82,11 @@ export default {
 <style lang="scss" scoped>
 .field {
   margin-bottom: 24px;
+}
+.container {
+    text-align: left;
+}
+.vdp-datepicker {
+  color: black;
 }
 </style>
