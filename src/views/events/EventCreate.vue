@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-5">
     <h1>Create New Event</h1>
-    <form>
+    <form @submit.prevent="createEvent">
       <label>Select a category</label>
       <select v-model="event.category">
         <option v-for="cat in categories" :key="cat">{{ cat }}</option>
@@ -59,6 +59,13 @@ export default {
     };
   },
   methods: {
+    createEvent() {
+      this.$store.dispatch('createEvent', this.event).then(() => {
+        this.event = this.createEventObject();
+      }).catch(() => {
+        console.log('There was a problem creating your event');
+      });
+    },
     createEventObject() {
       const { user } = this.$store.state;
       const id = Math.floor(Math.random() * 10000);
@@ -66,7 +73,7 @@ export default {
         id,
         user,
         category: '',
-        organizer: user,
+        organizer: user.name,
         title: '',
         description: '',
         location: '',

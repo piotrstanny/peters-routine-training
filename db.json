@@ -13,7 +13,14 @@
       "location": "Meow Town",
       "date": "Sun, 30th July 2020",
       "time": "2:00 pm",
-      "attendees": ["Doug", "Meg", "Lucia", "Deb", "Piotr", "Andrew"]
+      "attendees": [
+        "Doug",
+        "Meg",
+        "Lucia",
+        "Deb",
+        "Piotr",
+        "Andrew"
+      ]
     },
     {
       "id": 8419988,
@@ -43,6 +50,84 @@
       "location": "Puptown ",
       "date": "Sat, 15th July 2020",
       "time": "12:30 pm",
+      "attendees": []
+    },
+    {
+      "id": 6443,
+      "user": {
+        "id": "abc123",
+        "name": "Piotr"
+      },
+      "category": "crossfit",
+      "organizer": {
+        "id": "abc123",
+        "name": "Piotr"
+      },
+      "title": "Db Bartlett session",
+      "description": "DB EMOM and more",
+      "location": "Bartlett Park",
+      "date": "2020-06-20T17:31:00.000Z",
+      "time": "13:00",
+      "attendees": []
+    },
+    {
+      "id": 7398,
+      "user": {
+        "id": "abc123",
+        "name": "Piotr"
+      },
+      "category": "bike ride",
+      "organizer": "Piotr",
+      "title": "London ride",
+      "description": "balabal",
+      "location": "London Limehouse",
+      "date": "2020-06-20T17:34:00.000Z",
+      "time": "14:00",
+      "attendees": []
+    },
+    {
+      "id": 9248,
+      "user": {
+        "id": "abc123",
+        "name": "Piotr"
+      },
+      "category": "running",
+      "organizer": "Piotr",
+      "title": "Run run",
+      "description": "just run",
+      "location": "Canary Wharf",
+      "date": "2020-06-24T18:02:00.000Z",
+      "time": "9:00",
+      "attendees": []
+    },
+    {
+      "id": 7302,
+      "user": {
+        "id": "abc123",
+        "name": "Piotr"
+      },
+      "category": "bike ride",
+      "organizer": "Piotr",
+      "title": "rve",
+      "description": "erbv",
+      "location": "ver",
+      "date": "2020-06-09T18:03:00.000Z",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 8870,
+      "user": {
+        "id": "abc123",
+        "name": "Piotr"
+      },
+      "category": "crossfit",
+      "organizer": "Piotr",
+      "title": "AMRAP",
+      "description": "smsm",
+      "location": "Park",
+      "date": "2020-06-02T18:06:00.000Z",
+      "time": "",
       "attendees": []
     }
   ]
