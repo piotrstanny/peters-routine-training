@@ -71,7 +71,7 @@ export default {
       });
     },
     createEventObject() {
-      const { user } = this.$store.state;
+      const { user } = this.$store.state.user;
       const id = Math.floor(Math.random() * 10000);
       return {
         id,

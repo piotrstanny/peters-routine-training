@@ -3,7 +3,7 @@ import './registerServiceWorker';
 import NavBar from '@/components/NavBar.vue';
 import SmallTextWithIcon from '@/components/SmallTextWithIcon.vue';
 import router from './router';
-import store from './store';
+import store from './store/store';
 import '@/fontAwesomeIcons';
 import App from './App.vue';
 
