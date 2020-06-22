@@ -159,6 +159,21 @@
       "date": "2020-06-03T15:11:00.000Z",
       "time": "4:00",
       "attendees": []
+    },
+    {
+      "id": 2497,
+      "user": {
+        "id": "abc123",
+        "name": "Piotr"
+      },
+      "category": "bike ride",
+      "organizer": "Piotr",
+      "title": "Working??",
+      "description": "",
+      "location": "",
+      "date": "2020-06-02T17:21:00.000Z",
+      "time": "4:00",
+      "attendees": []
     }
   ]
 }

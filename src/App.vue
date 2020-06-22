@@ -5,13 +5,18 @@
         <router-view :key="$route.fullPath"/>
       </transition>
     </div>
+    <NotificationContainer/>
     <NavBar/>
   </div>
 </template>
 
 <script>
-export default {
+import NotificationContainer from '@/components/NotificationContainer.vue';
 
+export default {
+  components: {
+    NotificationContainer,
+  },
 };
 </script>
 

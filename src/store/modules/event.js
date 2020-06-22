@@ -37,7 +37,7 @@ export const actions = {
       dispatch('notifications/add', notification, { root: true });
     }).catch((error) => {
       const notification = {
-        type: error,
+        type: 'error',
         message: `There was a problem creating event: ${error.message}`,
       };
       dispatch('notifications/add', notification, { root: true });
@@ -51,7 +51,7 @@ export const actions = {
       })
       .catch((error) => {
         const notification = {
-          type: error,
+          type: 'error',
           message: `There was a problem fetching events: ${error.message}`,
         };
         dispatch('notifications/add', notification, { root: true });
