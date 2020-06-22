@@ -58,9 +58,10 @@ export const actions = {
       });
   },
   fetchEvent({ commit, dispatch }, id) {
-    EventService.getEvent(id)
+    return EventService.getEvent(id)
       .then((response) => {
         commit('SET_EVENT', response.data);
+        return response.data;
       })
       .catch((error) => {
         const notification = {

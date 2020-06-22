@@ -1,6 +1,9 @@
+/* eslint-disable no-param-reassign */
+
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import NProgress from 'nprogress';
+import store from '@/store/store';
 import Home from '../views/Home.vue';
 import User from '../views/User.vue';
 
@@ -61,6 +64,12 @@ const router = new VueRouter({
       name: 'EventShow',
       component: () => import(/* webpackChunkName: "events" */ '../views/events/EventShow.vue'),
       props: true,
+      beforeEnter(routeTo, routeFrom, next) {
+        store.dispatch('event/fetchEvent', routeTo.params.id).then((event) => {
+          routeTo.params.event = event;
+          next();
+        });
+      },
     },
     {
       path: '/create-event',
