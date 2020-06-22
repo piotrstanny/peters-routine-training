@@ -3,7 +3,7 @@
 export const namespaced = true;
 
 export const state = {
-  notifictions: [],
+  notifications: [],
 };
 
 const nextId = 1;
@@ -26,7 +26,7 @@ export const actions = {
   add({ commit }, notification) {
     commit('PUSH', notification);
   },
-  remove({ commit }, notificationsToRemove) {
-    commit('DELETE', notificationsToRemove);
+  remove({ commit }, notificationToRemove) {
+    commit('DELETE', notificationToRemove);
   },
 };
