@@ -1,5 +1,7 @@
 import EventService from '@/services/EventService';
 
+export const namespaced = true;
+
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-shadow */
 
