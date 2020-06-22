@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-// import NProgress from 'nprogress';
+import NProgress from 'nprogress';
 import Home from '../views/Home.vue';
 import User from '../views/User.vue';
 
@@ -68,6 +68,15 @@ const router = new VueRouter({
       component: () => import(/* webpackChunkName: "events" */ '../views/events/EventCreate.vue'),
     },
   ],
+});
+
+router.beforeEach((routeTo, routeFrom, next) => {
+  NProgress.start();
+  next();
+});
+
+router.afterEach(() => {
+  NProgress.done();
 });
 
 export default router;
