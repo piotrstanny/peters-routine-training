@@ -6,6 +6,7 @@ import router from './router';
 import store from './store/store';
 import '@/fontAwesomeIcons';
 import App from './App.vue';
+import 'nprogress/nprogress.css';
 
 Vue.component('NavBar', NavBar);
 Vue.component('SmallTextWithIcon', SmallTextWithIcon);
