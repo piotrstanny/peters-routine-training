@@ -1,58 +1,6 @@
 {
   "events": [
     {
-      "id": 5928101,
-      "user": {
-        "id": "abc123",
-        "name": "Adam"
-      },
-      "category": "animal welfare",
-      "organizer": "Adam",
-      "title": "Cat Cabaret",
-      "description": "Yay felines!",
-      "location": "Meow Town",
-      "date": "Sun, 30th July 2020",
-      "time": "2:00 pm",
-      "attendees": [
-        "Doug",
-        "Meg",
-        "Lucia",
-        "Deb",
-        "Piotr",
-        "Andrew"
-      ]
-    },
-    {
-      "id": 8419988,
-      "user": {
-        "id": "abc123",
-        "name": "Adam"
-      },
-      "category": "animal welfare",
-      "organizer": "Adam",
-      "title": "Kitty Cluster",
-      "description": "Yay cats!",
-      "location": "Catlandia",
-      "date": "Fri, 23th July 2020",
-      "time": "1:00 pm",
-      "attendees": []
-    },
-    {
-      "id": 4582797,
-      "user": {
-        "id": "abc123",
-        "name": "Adam"
-      },
-      "category": "animal welfare",
-      "organizer": "Adam",
-      "title": "Puppy Parade",
-      "description": "Yay pups!",
-      "location": "Puptown ",
-      "date": "Sat, 15th July 2020",
-      "time": "12:30 pm",
-      "attendees": []
-    },
-    {
       "id": 6443,
       "user": {
         "id": "abc123",
@@ -68,7 +16,11 @@
       "location": "Bartlett Park",
       "date": "2020-06-20T17:31:00.000Z",
       "time": "13:00",
-      "attendees": []
+      "attendees": [
+        "Matt",
+        "Tia",
+        "Ben"
+      ]
     },
     {
       "id": 7398,
@@ -79,11 +31,16 @@
       "category": "bike ride",
       "organizer": "Piotr",
       "title": "London ride",
-      "description": "balabal",
+      "description": "Ride among the Thames",
       "location": "London Limehouse",
       "date": "2020-06-20T17:34:00.000Z",
       "time": "14:00",
-      "attendees": []
+      "attendees": [
+        "Matt",
+        "Tia",
+        "Ben",
+        "Nicole"
+      ]
     },
     {
       "id": 9248,
@@ -93,86 +50,26 @@
       },
       "category": "running",
       "organizer": "Piotr",
-      "title": "Run run",
-      "description": "just run",
+      "title": "Run 1 mile race",
+      "description": "just run as fast as you can",
       "location": "Canary Wharf",
       "date": "2020-06-24T18:02:00.000Z",
       "time": "9:00",
       "attendees": []
     },
     {
-      "id": 7302,
-      "user": {
-        "id": "abc123",
-        "name": "Piotr"
-      },
-      "category": "bike ride",
-      "organizer": "Piotr",
-      "title": "rve",
-      "description": "erbv",
-      "location": "ver",
-      "date": "2020-06-09T18:03:00.000Z",
-      "time": "",
-      "attendees": []
-    },
-    {
-      "id": 8870,
+      "id": 4307,
       "user": {
         "id": "abc123",
         "name": "Piotr"
       },
       "category": "crossfit",
       "organizer": "Piotr",
-      "title": "AMRAP",
-      "description": "smsm",
-      "location": "Park",
-      "date": "2020-06-02T18:06:00.000Z",
-      "time": "",
-      "attendees": []
-    },
-    {
-      "id": 1874,
-      "user": {
-        "id": "abc123",
-        "name": "Piotr"
-      },
-      "category": "running",
-      "organizer": "Piotr",
-      "title": "Run London",
-      "description": "just run",
-      "location": "London",
-      "date": "2020-09-10T18:15:00.000Z",
-      "time": "3:00",
-      "attendees": []
-    },
-    {
-      "id": 8109,
-      "user": {
-        "id": "abc123",
-        "name": "Piotr"
-      },
-      "category": "",
-      "organizer": "Piotr",
-      "title": "Success",
-      "description": "",
-      "location": "",
-      "date": "2020-06-03T15:11:00.000Z",
-      "time": "4:00",
-      "attendees": []
-    },
-    {
-      "id": 2497,
-      "user": {
-        "id": "abc123",
-        "name": "Piotr"
-      },
-      "category": "bike ride",
-      "organizer": "Piotr",
-      "title": "Working??",
-      "description": "",
-      "location": "",
-      "date": "2020-06-02T17:21:00.000Z",
-      "time": "4:00",
+      "title": "Skipping challenge",
+      "description": "10 sets of skipping DUs till failure.",
+      "location": "Millwall Park",
+      "date": "2020-06-25T23:06:00.000Z",
+      "time": "12:00",
       "attendees": []
     }
   ]
