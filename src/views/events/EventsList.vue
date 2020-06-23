@@ -1,24 +1,44 @@
 <template>
   <div class="container mt-5">
-    <h1>Current Events for {{ user.user.name }}</h1>
+    <h2>Current Events for {{ user.user.name }}</h2>
     <EventCard v-for="event in event.events" :key="event.id" :event="event"/>
-    <template v-if="page!=1">
-      <router-link :to="{ name: 'EventsList', query: { page: page - 1 } }" rel="prev">
-        Prev Page
-      </router-link>|
-    </template>
-    <router-link :to="{ name: 'EventsList', query: { page: page + 1 } }" rel="next">
-      Next Page
-    </router-link>
-    <h4>
+    <div class="row justify-content-center">
+      <template v-if="page!=1">
+        <router-link
+        :to="{ name: 'EventsList', query: { page: page - 1 } }"
+        rel="prev"
+        type="button"
+        class="btn btn-info m-1">
+        <strong>Previous Page</strong>
+        </router-link>
+      </template>
       <router-link
-      :to="{ name: 'EventCreate' }">Create New Event</router-link>
-    </h4>
-    <h4>
-      <router-link
-      :to="{ name: 'User', params: {username: 'Peter'} }">User's profile page
+      tag="button"
+      :to="{ name: 'EventsList', query: { page: page + 1 } }"
+      rel="next"
+      type="button"
+      class="btn btn-info m-1">
+      <strong>Next Page</strong>
       </router-link>
-    </h4>
+    </div>
+
+    <div class="row justify-content-center">
+      <router-link
+      tag="button"
+      type="button"
+      class="btn btn-warning m-2"
+      :to="{ name: 'EventCreate' }">
+      <fa-icon icon="plus" class="mr-1"></fa-icon>
+      <strong>Create New Event</strong></router-link>
+      <router-link
+      tag="button"
+      type="button"
+      class="btn btn-warning m-2"
+      :to="{ name: 'User', params: {username: 'Peter'} }">
+      <fa-icon icon="user-alt" class="mr-1"></fa-icon>
+      <strong>User's Profile Page</strong>
+      </router-link>
+    </div>
   </div>
 </template>
 
