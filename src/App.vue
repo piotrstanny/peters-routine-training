@@ -2,19 +2,20 @@
   <div id="app">
     <div id="container">
       <transition name="fade-in">
-        <router-view/>
+        <router-view :key="$route.fullPath"/>
       </transition>
     </div>
+    <NotificationContainer/>
     <NavBar/>
   </div>
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue';
+import NotificationContainer from '@/components/NotificationContainer.vue';
 
 export default {
   components: {
-    NavBar,
+    NotificationContainer,
   },
 };
 </script>
