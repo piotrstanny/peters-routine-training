@@ -1,4 +1,4 @@
-# peters-routine-training
+# Peter's Routine Interval Timer
 Mobile-first, native-app-like design PWA for setting flexible Interval timer for your workout. 
 
 Built on Vue.js Progressive Web App project.
