@@ -6,17 +6,17 @@
       <p>"Working out with timer<br>makes you accountable immidiately."</p>
       <p>Let's get it done!</p>
     </div>
-    <HomeOptions/>
+    <HomeBg/>
   </div>
 </template>
 
 <script>
-import HomeOptions from '@/components/HomeOptions.vue';
+import HomeBg from '@/components/HomeBg.vue';
 import Header from '@/components/Header.vue';
 
 export default {
   components: {
-    HomeOptions,
+    HomeBg,
     Header,
   },
 };

@@ -1,51 +1,15 @@
 <template>
-  <div id="timers-list">
-    <div class="row row-cols-1 m-3 pt-4">
-      <router-link :to="{name: 'InstantTimer'}">
-        <TimersPreviewTemplate>
-        </TimersPreviewTemplate>
-      </router-link>
-
-      <h4 style="text-align: center; margin-top: 30px; margin-bottom: 20px;">
-        List of your timers</h4>
-      <div
-      v-for="timer in timers"
-      :key="timer.id"
-      :timers="timers"
-      >
-        <TimersPreviewTemplate>
-          <span slot="title">{{ timer.title }}</span>
-          <span slot="description">{{ timer.description }}</span>
-          <span slot="time">{{ timer.totalTime }}</span>
-        </TimersPreviewTemplate>
-      </div>
+  <div class="container mt-5">
+    <h2>Ready Timers</h2>
+    <div class="row justify-content-center"><br>
+      <p><br><br>Here is going to be a list of ready timers</p>
     </div>
   </div>
 </template>
 
 <script>
-import TimersPreviewTemplate from '@/views/timers/TimersPreviewTemplate.vue';
-
-export default {
-  components: {
-    TimersPreviewTemplate,
-  },
-  props: [
-    'timers',
-  ],
-};
 </script>
 
-<style lang="scss" scoped>
-@media (min-width: 576px) {
-  #timers-list {
-    padding-top: 10px;
-  }
-}
-#timers-list {
-  text-align: left;
-  a {
-  text-decoration: none;
-  }
-}
+<style>
+
 </style>

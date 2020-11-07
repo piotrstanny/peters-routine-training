@@ -26,15 +26,15 @@ export default {
         },
         {
           id: '2',
-          title: 'Timers',
+          title: 'Interval Timer',
           icon: 'stopwatch',
-          path: '/timers',
+          path: '/instant-timer',
         },
         {
           id: '3',
-          title: 'Events',
-          icon: 'users',
-          path: '/events-list',
+          title: 'Ready Timers',
+          icon: 'list',
+          path: '/timers-list',
         },
       ],
     };
@@ -46,7 +46,7 @@ export default {
   nav.navbar {
     position: fixed;
     bottom: 0;
-    left: 0;
+    left: auto;
     width: 100%;
 
     a {

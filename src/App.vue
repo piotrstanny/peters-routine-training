@@ -5,17 +5,17 @@
         <router-view :key="$route.fullPath"/>
       </transition>
     </div>
-    <NotificationContainer/>
+    <!-- <NotificationContainer/> -->
     <NavBar/>
   </div>
 </template>
 
 <script>
-import NotificationContainer from '@/components/NotificationContainer.vue';
+// import NotificationContainer from '@/components/NotificationContainer.vue';
 
 export default {
   components: {
-    NotificationContainer,
+    // NotificationContainer,
   },
 };
 </script>
@@ -24,9 +24,14 @@ export default {
 $bg-color: #1e2124;
 $text-color: #f3f3f3;
 
+* {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
 body {
   background-color: $bg-color;
-  margin: 0;
+  margin: 0 auto;
 }
 
 #app {
