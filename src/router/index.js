@@ -17,11 +17,6 @@ const router = new VueRouter({
       component: Home,
     },
     {
-      path: ':details',
-      name: 'SingleTimer',
-      component: () => import(/* webpackChunkName: "timers" */ '../views/timers/SingleTimer.vue'),
-    },
-    {
       path: '/instant-timer',
       name: 'InstantTimer',
       component: () => import(/* webpackChunkName: "timers" */ '../views/timers/InstantTimer.vue'),

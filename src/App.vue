@@ -5,19 +5,11 @@
         <router-view :key="$route.fullPath"/>
       </transition>
     </div>
-    <!-- <NotificationContainer/> -->
     <NavBar/>
   </div>
 </template>
 
 <script>
-// import NotificationContainer from '@/components/NotificationContainer.vue';
-
-export default {
-  components: {
-    // NotificationContainer,
-  },
-};
 </script>
 
 <style lang="scss">
