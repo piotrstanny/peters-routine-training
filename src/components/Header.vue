@@ -1,6 +1,8 @@
 <template>
   <div id="header">
-    <img src="@/assets/logo.png" alt="Peter's Routine logo">
+    <a href="https://petersroutine.com/">
+      <img src="@/assets/logo.png" alt="Peter's Routine logo">
+    </a>
   </div>
 </template>
 
